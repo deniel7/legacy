@@ -1,0 +1,115 @@
+insert into sys_menu (id_menu, title, created_at, created_by) values (506, 'Laporan Slip Gaji', current_timestamp, 'system');
+insert into sys_role_dtl (id_hdr, id_menu) values (1, 506);
+
+-- DONE
+
+alter table invoice_penjualans add column ppn_flag integer;
+
+-- DONE
+
+insert into sys_menu (id_menu, title, created_at, created_by) values (505, 'Laporan Pembayaran Angkutan', current_timestamp, 'system');
+insert into sys_role_dtl (id_hdr, id_menu) values (1, 505);
+
+
+-- DONE
+
+CREATE TABLE `sys_menu` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_menu` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_by` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `updated_by` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `sys_role` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rolename` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_by` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `updated_by` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB ;
+
+CREATE TABLE `sys_role_dtl` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_hdr` int(11) NOT NULL,
+  `id_menu` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `sys_user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rolename` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `active` int(11) NOT NULL DEFAULT '0',
+  `created_by` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `updated_by` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sys_user_username_unique` (`username`),
+  KEY `sys_user_rolename_index` (`rolename`)
+) ENGINE=InnoDB;
+
+CREATE TABLE `sys_user_attribute` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `attribute_name` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `attribute_value` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sys_user_attribute_id_user_index` (`id_user`),
+  KEY `sys_user_attribute_attribute_name_index` (`attribute_name`)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE `invoice_sequences` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tahun` int(11) NOT NULL,
+  `tanda` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nomor` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+-- DONE
+
+CREATE TABLE `konsumen_branches` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `nama` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `konsumen_id` int(11) NOT NULL,
+  `alamat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `hp` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `created_by` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `updated_by` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+);
+
+alter table invoice_penjualans add column konsumen_branch_id integer;
+
+alter table invoice_penjualans add column tanggal_bayar_angkutan date;
+alter table invoice_penjualans add column diskon_bayar_angkutan decimal(15,2);
+alter table invoice_penjualans add column jumlah_bayar_angkutan decimal(15,2);
+alter table invoice_penjualans add column status_bayar_angkutan integer;
+alter table invoice_penjualans add column bank_tujuan_bayar_angkutan varchar(255);
+alter table invoice_penjualans add column keterangan_bayar_angkutan varchar(255);
+
+
+alter table detail_penjualans modify subtotal decimal(15,2);
+alter table detail_penjualans add column jumlah_ball integer;
+alter table invoice_penjualans modify diskon decimal(15,2);
+alter table invoice_penjualans modify ppn decimal(15,2);
+
+create unique index invoice_penjualans_no_invoice_unique on invoice_penjualans (no_invoice);
+create index invoice_penjualans_no_surat_jalan_index on invoice_penjualans (no_surat_jalan);
