@@ -143,8 +143,8 @@ class ClientController extends Controller
         where pr.user_id =".$user_id." 
         ");
 
-        $data['projects'] = DB::select("select * from projects
-        ");
+        $data['projects'] = DB::select("select * from projects where user_id = 
+        ".$user_id);
 
         //DB::connection()->enableQueryLog();
 
