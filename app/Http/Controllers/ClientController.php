@@ -34,8 +34,12 @@ class ClientController extends Controller
 
     public function register()
     {
-     
-         return view('client.register');
+        $data['projects'] = DB::select("select p.id,u.pengantin_pria, u.pengantin_wanita, p.quotes, g.gbr1 from projects p 
+        join users u on p.user_id = u.id
+        join galleries g on p.id = g.project_id
+        ");
+        
+         return view('client.register', $data);
 
     }
 
@@ -58,7 +62,7 @@ class ClientController extends Controller
         'code' => $input['activation_code']
         ];
 
-        // $this->sendEmail($data, $input);
+        $this->sendEmail($data, $input);
 
         //return redirect()->route('index');
         return redirect('client');
@@ -70,7 +74,7 @@ class ClientController extends Controller
  
          Mail::send('emails.register', $data, function ($message) use ($input) {
  
-            $message->from('deniel@yogyagroup.com', 'Deniel');
+            $message->from('support@legacyweddingorganizer.com', 'Support');
 
             $message->to($input['email'], $input['name'])->subject('Please verify your account registration!');
  
