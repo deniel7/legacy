@@ -35,6 +35,15 @@
             </ul>
           </li>
 
+          <li class="treeview {{ in_array(\Request::segment(1), ['contacts']) ? 'active' : '' }}">
+          <a href="#"><i class="fa fa-envelope-o"></i> <span>Contact</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            @if (in_array(900, session()->get('allowed_menus')))
+              <li {{ \Request::segment(2) == 'contacts' ? 'class=active' : '' }}><a href="{{ url('/contacts') }}">List</a></li>
+            @endif
+          </ul>
+        </li>
+
          <li class="treeview {{ in_array(\Request::segment(1), ['system']) ? 'active' : '' }}">
           <a href="#"><i class="fa fa-wrench"></i> <span>Administrasi Sistem</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">

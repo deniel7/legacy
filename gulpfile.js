@@ -18,23 +18,12 @@ elixir(function(mix) {
 elixir(function(mix) {
     mix.scripts([
         'common.js',
-        'karyawan.js',
-        'karyawanHarian.js',
-        'karyawanStaff.js',
-        'absensiHarian.js',
-        'absensiApproval.js',
-        'absensiPacking.js',
-        'karyawanValidation.js',
-        'reportAbsensiKaryawanTetap.js',
-        'reportAbsensiKaryawanHarian.js',
-        'reportAbsensiKaryawanPacking.js',
-        'reportAbsensiKaryawanStaff.js',
-        'upahJenisBarang.js',
         'couple.js',
         'user.js',
         'package.js',
         'packageTaken.js',
         'vendor.js',
-        'event.js'
+        'event.js',
+        'contact.js'
     ]);
 });

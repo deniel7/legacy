@@ -11,6 +11,7 @@ use Prologue\Alerts\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use App\Contact;
 
 class FrontController extends Controller
 {
@@ -130,20 +131,21 @@ class FrontController extends Controller
         );
 
 
+        $contact = new Contact();
+        $contact->nama = $request->input('name');
+        $contact->email = $request->input('email');
+        $contact->phone = $request->input('phone');
+        $contact->message = $request->input('message');
+        $contact->save();
 
-        // $data = [
-        // 'name' => $input['nome'],
-        // 'email' => $input['email']
-        // ];
+        DB::commit();
+       
+        Log::info('IP from '.$request->getClientIp(). ' sent email to your site');
 
-        // $this->sendEmail($data, $input);
-
-        //Log Users action
-        Log::info('Usuário com ip '.$request->getClientIp(). ' enviou um email pelo site');
-
+        
 
         //Redirect back
-        Alert::success('Obrigado pelo contato!');
+        Alert::success('Thanks for contact us!');
         return redirect('contact');
     }
 }

@@ -73,6 +73,9 @@ Route::resource('events', 'EventController');
 Route::controller('events', 'EventController');
 Route::post('datatable/events', 'EventController@datatable');
 
+Route::resource('contacts', 'ContactController');
+Route::controller('contacts', 'ContactController');
+Route::post('datatable/contacts', 'ContactController@datatable');
 
 
 // ori
