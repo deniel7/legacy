@@ -184,7 +184,6 @@ section h2.section-heading {
     font-size: 40px;
     margin-top: 0;
     margin-bottom: 15px;
-    color: #d5c0b4;
 }
 
 section h3.section-subheading {
@@ -1086,32 +1085,32 @@ border-right: 1px solid #e7e7e7;
     border-right: 1px solid #e7e7e7;
 }
 
-.side-menu .a {
+.side-menu .navbar {
     border: none;
 }
 
-.side-menu .a-header {
+.side-menu .-header {
     width: 100%;
     border-bottom: 1px solid #e7e7e7;
 }
 
-.side-menu .a-nav .active a {
+.side-menu .navbar-nav .active a {
     background-color: transparent;
     margin-right: -1px;
     border-right: 5px solid #e7e7e7;
 }
 
-.side-menu .a-nav li {
+.side-menu .navbar-nav li {
     display: block;
     width: 100%;
     border-bottom: 1px solid #e7e7e7;
 }
 
-.side-menu .a-nav li a {
+.side-menu .navbar-nav li a {
     padding: 15px;
 }
 
-.side-menu .a-nav li a .glyphicon {
+.side-menu .navbar-nav li a .glyphicon {
     padding-right: 10px;
 }
 
@@ -1141,16 +1140,16 @@ border-right: 1px solid #e7e7e7;
     background-color: #f3f3f3;
 }
 
-.side-menu #dropdown .panel-body .a-nav {
+.side-menu #dropdown .panel-body .navbar-nav {
     width: 100%;
 }
 
-.side-menu #dropdown .panel-body .a-nav li {
+.side-menu #dropdown .panel-body .navbar-nav li {
     padding-left: 15px;
     border-bottom: 1px solid #e7e7e7;
 }
 
-.side-menu #dropdown .panel-body .a-nav li:last-child {
+.side-menu #dropdown .panel-body .navbar-nav li:last-child {
     border-bottom: none;
 }
 
@@ -1319,7 +1318,7 @@ border-right: 1px solid #e7e7e7;
     /* Slide side menu*/
 
     /* Add .absolute-wrapper.slide-in for scrollable menu -> see top comment */
-    .side-menu-container > .a-nav.slide-in {
+    .side-menu-container > .navbar-nav.slide-in {
         -moz-animation: slidein 300ms forwards;
         -o-animation: slidein 300ms forwards;
         -webkit-animation: slidein 300ms forwards;
@@ -1328,7 +1327,7 @@ border-right: 1px solid #e7e7e7;
         transform-style: preserve-3d;
     }
 
-    .side-menu-container > .a-nav {
+    .side-menu-container > .navbar-nav {
 
         /* Add position:absolute for scrollable menu -> see top comment */
         position: fixed;
@@ -1472,7 +1471,7 @@ border-right: 1px solid #e7e7e7;
     }
 
     /* Dropdown tweek */
-    #dropdown .panel-body .a-nav {
+    #dropdown .panel-body .navbar-nav {
         margin: 0;
     }
 

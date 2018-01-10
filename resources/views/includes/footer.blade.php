@@ -38,34 +38,26 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-3 info">
-                    <h5>Get started</h5>
+                <div class="col-sm-4 info">
+                    <h5><u>GET IN TOUCH</u></h5>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Client</a></li>
-                        <li><a href="#">Vendor</a></li>
-                        <li><a href="#">Project</a></li>
+                        <li>Phone +62 878 2330 3095</li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +62 856 240 10 229 (Hotline)</li>
+                        <li>Email</li>
+                        <li>support@legacyweddingorganizer.com</li>
                     </ul>
                 </div>
-                <div class="col-sm-3 info">
-                    <h5>The Special Days</h5>
+                <div class="col-sm-4 info">
+                    <h5><u>PROJECT</u></h5>
                     <ul>
                         @foreach($projects as $project)
                         <li>{{ $project->pengantin_pria }} & {{ $project->pengantin_wanita }}</li>
                         @endforeach
                     </ul>
                 </div>
-                <div class="col-sm-3 info">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                        
-                    </ul>
-                </div>
-                <div class="col-sm-3 info">
-                    <h5>Latest Events</h5>
-                    <p> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                <div class="col-sm-4 info">
+                    <h5><u>ABOUT US</u></h5>
+                    <p> <b>Hello, thank you for reaching out for us ! <br/> We are Wedding Planner and Organizer </b><br/> We are timekeeper, counselor, personal shopper and designer rolled into one. <br/> <b>Your unforgetable moment</b></p>
                 </div>
             </div>
         </div>

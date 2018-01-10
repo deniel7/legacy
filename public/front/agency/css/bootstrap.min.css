@@ -4203,7 +4203,10 @@ input[type=submit].btn-block {
 }
 
 .collapse.in {
-    display: block
+    display: block;
+    background: rgba(237,237,237,0.5);
+    width: 180px;
+
 }
 
 tr.collapse.in {
@@ -5389,8 +5392,8 @@ textarea.input-group-sm>.input-group-btn>.btn {
 }
 
 .navbar-default {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7
+    /* background-color: #f8f8f8;
+    border-color: #e7e7e7 */
 }
 
 .navbar-default .navbar-brand {

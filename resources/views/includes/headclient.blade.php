@@ -11,7 +11,7 @@
 
     
     <!-- Theme CSS -->
-    <link href="{{asset('front/agency/css/agency.css')}}" rel="stylesheet">
+    <link href="{{asset('front/agency/css/agencyclient.css')}}" rel="stylesheet">
     
     <style>
 
