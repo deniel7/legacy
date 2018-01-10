@@ -9,8 +9,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Couples
-        <small>Detail</small>
+        Project
+        <small>Edit</small>
       </h1>
         
       <ol class="breadcrumb">
@@ -32,47 +32,49 @@
           <div class="box box-primary">
             
             <div class="box-header with-border">
-              <h3 class="box-title">Data User</h3>
+              <h3 class="box-title">Data Project</h3>
             </div>
             <!-- /.box-header -->
             
             <!-- form start -->
-            <form class="form-horizontal" id="frmData" method="post" action="{{ url('/users') }}/{{ $user->id }}" autocomplete="off">
+            <form class="form-horizontal" id="frmData" method="post" action="{{ url('/couple') }}/{{ $projects->id }}" autocomplete="off">
               
               {{ csrf_field() }}
               {{ method_field('PUT') }}
               
               <div class="box-body">
-                
-                <div class="form-group">
-                  <label for="nama" class="col-sm-2 control-label">User</label>
-                  <div class="col-sm-10">
-                    {{ $user->username }} 
-                  </div>
-                </div>
+              
 
                 <div class="form-group">
                   <label for="nama" class="col-sm-2 control-label">Quotes</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="email" id="email" value="{{ old('email') !== null ? old('email') : $user->email }}" placeholder="Nama">
+                    <input type="text" class="form-control" name="quotes" id="quotes" value="{{ old('quotes') !== null ? old('quotes') : $projects->quotes }}" placeholder="Quotes">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="nama" class="col-sm-2 control-label">Deskripsi</label>
                   <div class="col-sm-10">
-                    <textarea></textarea>
+                    <textarea id="editor1" class="ckeditor" name="deskripsi" value="{{ old('deskripsi') !== null ? old('deskripsi') : $projects->deskripsi }}">{{ $projects->deskripsi }}</textarea>
+
+                    <!-- <input type="text" class="form-control" name="email" id="email" value="{{ old('deskripsi') !== null ? old('quotes') : $projects->deskripsi }}" placeholder="Nama"> -->
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="nama" class="col-sm-2 control-label">Summary Budget</label>
                   <div class="col-sm-10">
-                  <textarea></textarea>
+                  <textarea id="editor2" class="ckeditor" name="summary" value="{{ old('summary') !== null ? old('summary') : $projects->summary }}">{{ $projects->summary }}</textarea>
                   </div>
                 </div>
 
-                
+                <div class="form-group">
+                  <label for="phone" class="col-sm-2 control-label">Main Rundown *</label>
+                  <div class="col-sm-10">
+                    <input type="hidden" name="old_pdf" value="{{ $projects->main_rundown }}" />
+                     {!! Form::file('pdf', array('class' => 'image')) !!}
+                  </div>
+                </div>
                 
               </div>
               <!-- /.box-body -->
@@ -105,3 +107,22 @@
     coupleModule.init();
     });
     </script>
+
+    <script type="text/javascript">  
+    CKEDITOR.replace( 'editor1',{
+
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+     });
+
+    CKEDITOR.replace( 'editor2',{
+
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+     });     
+
+  </script>  

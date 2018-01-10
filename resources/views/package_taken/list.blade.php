@@ -52,7 +52,12 @@
                 <td>{{ $p->created_at }}</td>
                 <td>{{ $p->updated_at }}</td>
                 
-                <td><a href="{{ url('couple/'.$p->id.'/edit') }}"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a></td>
+                <td>
+                <a href="{{ url('package-taken/'.$p->id.'/edit') }}"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a>
+
+                <a href="javascript:;" onclick="hola(event, \''.{{ $p->id }}.'\');"><button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>
+
+                </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -89,5 +94,43 @@
 <style>
 .datepicker{z-index:1151 !important;}
 </style>
+<script type="text/javascript">
+function hola(event, id) {
+        event.preventDefault();
 
+        swal({
+                title: "Apakah anda yakin?",
+                text: "Data Karyawan akan dihapus!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Ya, lanjutkan!",
+                cancelButtonText: "Tidak, batalkan!",
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+            },
+            function() {
+                $.ajax({
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader("X-CSRF-Token", $("meta[name='csrf-token']").attr("content"));
+                        },
+                        type: "POST",
+                        data: {
+                            _method: 'DELETE'
+                        },
+                        url: "/package-talem/" + id
+                    })
+                    .done(function(data) {
+                        if (data === "success") {
+                            // Redraw table
+                            $('#datatable').DataTable().draw();
+                            swal("", "Data berhasil dihapus.", "success");
+                        } else {
+                            swal("", data, "error");
+                        }
+                    });
+            });
+}
+
+</script>
 @endsection

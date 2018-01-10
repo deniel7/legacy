@@ -11,83 +11,6 @@
 |
 */
 
-//FRONTEND ROUTES
-
-
-
-
-
-Route::get('/home', ['uses' => 'UserController@getHome']);
-Route::controller('/auth', 'Auth\AuthController');
-Route::controller('/password', 'Auth\PasswordController');
- 
- 
-Route::get('/user/home', ['uses' => 'UserController@getHome']);
-Route::controller('user', 'Auth\UserController');
-Route::controller('/user/password', 'Auth\UserPasswordController');
-
-
-Route::get('/', 'FrontController@index');
-Route::get('/detail/{id}', 'FrontController@getDetail');
-Route::get('/project', 'ProjectController@index');
-Route::get('/client', 'ClientController@index');
-Route::get('client-home', 'ClientController@home');
-Route::get('/about', 'FrontController@getAbout');
-Route::get('/contact', 'FrontController@getContact');
-Route::post('post-contact', 'FrontController@doSend');
-Route::post('contact', ['as'=>'front.post_contact','uses'=>'FrontController@post_contact']);
-
-Route::resource('/packages', 'PackageController');
-Route::controller('packages', 'PackageController');
-Route::post('datatable/packages', 'PackageController@datatable');
-
-
-
-
-
-Route::resource('users', 'UserController');
-Route::controller('users', 'UserController');
-Route::post('datatable/users', 'UserController@datatable');
-
-Route::get('/couple/image/{id}', 'CoupleController@getPreviewImage');
-Route::post('resizeImagePost', ['as'=>'resizeImagePost','uses'=>'CoupleController@resizeImagePost']);
-
-Route::resource('couple', 'CoupleController');
-Route::controller('couple', 'CoupleController');
-Route::post('datatable/couples', 'CoupleController@datatable');
-
-
-Route::get('/package-taken/{id}/create', 'PackageTakenController@create');
-Route::resource('package-taken', 'PackageTakenController');
-Route::controller('package-taken', 'PackageTakenController');
-// Route::resource('/package_taken', 'PackageTakenController');
-Route::get('/package_taken/{id}', 'PackageTakenController@getIndex');
-Route::post('datatable/package-taken/', 'PackageTakenController@getIndex');
-
-
-Route::resource('vendors', 'VendorController');
-Route::controller('vendors', 'VendorController');
-Route::post('datatable/vendors', 'VendorController@datatable');
-
-Route::resource('events', 'EventController');
-Route::controller('events', 'EventController');
-Route::post('datatable/events', 'EventController@datatable');
-
-Route::resource('contacts', 'ContactController');
-Route::controller('contacts', 'ContactController');
-Route::post('datatable/contacts', 'ContactController@datatable');
-
-
-// ori
-/* Redirect ke halaman login ketika membuka aplikasi */
-// Route::get('/', function () {
-//     return redirect('login');
-// });
-
-// Route::get('/', [
-//    'as' => 'index', 'uses' => 'HomeController@index'
-//  ]);
-
 Route::get('register', [
    'as' => 'register', 'uses' => 'ClientController@register'
  ]);
@@ -117,6 +40,86 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 
 
 Route::group(['middleware' => 'auth'], function () {
+
+
+
+    //FRONTEND ROUTES
+    Route::get('/home', ['uses' => 'UserController@getHome']);
+    Route::controller('/auth', 'Auth\AuthController');
+    Route::controller('/password', 'Auth\PasswordController');
+      
+    Route::get('/user/home', ['uses' => 'UserController@getHome']);
+    Route::controller('user', 'Auth\UserController');
+    Route::controller('/user/password', 'Auth\UserPasswordController');
+
+    Route::get('/', 'FrontController@index');
+    Route::get('/detail/{id}', 'FrontController@getDetail');
+    Route::get('/project', 'ProjectController@index');
+    Route::get('/client', 'ClientController@index');
+    Route::get('client-home', 'ClientController@home');
+    Route::get('/about', 'FrontController@getAbout');
+    Route::get('/contact', 'FrontController@getContact');
+    Route::post('post-contact', 'FrontController@doSend');
+    Route::post('contact', ['as'=>'front.post_contact','uses'=>'FrontController@post_contact']);
+
+    Route::resource('/packages', 'PackageController');
+    Route::controller('packages', 'PackageController');
+    Route::post('datatable/packages', 'PackageController@datatable');
+
+
+
+
+
+
+
+
+
+
+
+    //BACKEND ROUTES
+    Route::resource('users', 'UserController');
+    Route::controller('users', 'UserController');
+    Route::post('datatable/users', 'UserController@datatable');
+
+    Route::get('/couple/image/{id}', 'CoupleController@getPreviewImage');
+    Route::post('resizeImagePost', ['as'=>'resizeImagePost','uses'=>'CoupleController@resizeImagePost']);
+
+    Route::resource('couple', 'CoupleController');
+    Route::controller('couple', 'CoupleController');
+    Route::post('datatable/couples', 'CoupleController@datatable');
+
+    Route::model('project', 'App\Project');
+    Route::model('package-taken', 'App\PackageTaken');
+
+    Route::resource('project', 'ProjectController');
+    Route::controller('project', 'ProjectController');
+    // Route::post('datatable/couples', 'CoupleController@datatable');
+
+
+    Route::get('/package-taken/{id}/create', 'PackageTakenController@create');
+    Route::resource('package-taken', 'PackageTakenController');
+    Route::controller('package-taken', 'PackageTakenController');
+    // Route::resource('/package_taken', 'PackageTakenController');
+    Route::get('/package_taken/{id}', 'PackageTakenController@getIndex');
+    Route::post('datatable/package-taken/', 'PackageTakenController@getIndex');
+
+
+    Route::resource('vendors', 'VendorController');
+    Route::controller('vendors', 'VendorController');
+    Route::post('datatable/vendors', 'VendorController@datatable');
+
+    Route::resource('events', 'EventController');
+    Route::controller('events', 'EventController');
+    Route::post('datatable/events', 'EventController@datatable');
+
+    Route::resource('contacts', 'ContactController');
+    Route::controller('contacts', 'ContactController');
+    Route::post('datatable/contacts', 'ContactController@datatable');
+
+
+
+
+
     Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
     Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
     

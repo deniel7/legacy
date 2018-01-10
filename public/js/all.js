@@ -41,7 +41,7 @@ var coupleModule = (function(commonModule) {
 
         swal({
                 title: "Apakah anda yakin?",
-                text: "Data Karyawan akan dihapus!",
+                text: "Data Project ini akan dihapus!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
@@ -59,7 +59,7 @@ var coupleModule = (function(commonModule) {
                         data: {
                             _method: 'DELETE'
                         },
-                        url: "/karyawan-harian/" + id
+                        url: "/project/" + id
                     })
                     .done(function(data) {
                         if (data === "success") {
@@ -751,7 +751,7 @@ var packageTakenModule = (function(commonModule) {
     var existing_model = null;
 
     var init = function() {
-        _applyDatatable();
+
         _applyDatepicker();
         _applyAutoNumeric();
     };
@@ -782,7 +782,7 @@ var packageTakenModule = (function(commonModule) {
                         data: {
                             _method: 'DELETE'
                         },
-                        url: "/karyawan-harian/" + id
+                        url: "/package-talem/" + id
                     })
                     .done(function(data) {
                         if (data === "success") {
@@ -832,79 +832,7 @@ var packageTakenModule = (function(commonModule) {
 
     };
 
-    var _applyDatatable = function() {
-        /* Tambah Input Field di TFOOT */
-        $('#datatable tfoot th').each(function() {
-            var title = $(this).text();
-            if (title != '') {
-                $(this).html('<input type="text" class="form-control" placeholder="' + title + '" style="width: 100%;" />');
-            }
-            if (title == 'Created Date' || title == 'Updated Date' || title == 'Tanggal') {
-                $(this).html('<input type="text" class="datepicker form-control" placeholder="Search ' + title + '" style="width: 100%;" />');
-            }
-        });
 
-        var table = $('#datatable').DataTable({
-            stateSave: true,
-
-            fnStateSave: function(oSettings, oData) {
-                localStorage.setItem('DataTables_' + window.location.pathname, JSON.stringify(oData));
-            },
-            fnStateLoad: function(oSettings) {
-                var data = localStorage.getItem('DataTables_' + window.location.pathname);
-                return JSON.parse(data);
-            },
-
-            processing: true,
-            serverSide: true,
-            ajax: {
-                "url": datatableBaseURL,
-                "type": "POST"
-            },
-            language: {
-                "decimal": ",",
-                "thousands": "."
-            },
-            columns: [{
-                data: 'nama',
-                name: 'packages.nama'
-            }, {
-                data: 'name',
-                name: 'vendors.name'
-            }, {
-                data: 'created_at',
-                name: 'packages_taken.created_at'
-            }, {
-                data: 'updated_at',
-                name: 'packages_taken.updated_at'
-            }, {
-                data: 'action',
-                name: 'action',
-                orderable: false,
-                searchable: false
-            }]
-        });
-
-        /* Ketika Value pada Input di TFOOT berubah, Maka Search Sesuai Kolom */
-        table.columns().every(function() {
-            var that = this;
-            $('input', this.footer()).on('keyup change', function() {
-
-                var keyword = this.value;
-
-                if (this.placeholder == 'Search Model' || this.placeholder == 'Search Brand') {
-                    keyword = keyword.toUpperCase();
-                }
-
-                if (that.search() !== keyword) {
-                    that
-                        .search(keyword)
-                        .draw();
-                }
-            });
-        });
-
-    };
     var showPrint = function(id) {
 
         $.ajax({

@@ -18,7 +18,7 @@ var coupleModule = (function(commonModule) {
 
         swal({
                 title: "Apakah anda yakin?",
-                text: "Data Karyawan akan dihapus!",
+                text: "Data Project ini akan dihapus!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
@@ -36,7 +36,7 @@ var coupleModule = (function(commonModule) {
                         data: {
                             _method: 'DELETE'
                         },
-                        url: "/karyawan-harian/" + id
+                        url: "/project/" + id
                     })
                     .done(function(data) {
                         if (data === "success") {

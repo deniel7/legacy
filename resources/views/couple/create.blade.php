@@ -37,7 +37,7 @@
             <!-- /.box-header -->
             
             <!-- form start -->
-            <form class="form-horizontal" id="frmData" method="post" action="{{ url('/couple') }}" autocomplete="off">
+            <form class="form-horizontal" id="frmData" method="post" action="{{ url('/couple') }}" autocomplete="off" enctype="multipart/form-data">
               
               {{ csrf_field() }}
               

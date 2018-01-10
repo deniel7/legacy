@@ -17,22 +17,22 @@ class PackageTakenController extends Controller
 {
     public function datatable($id)
     {
-        $users = DB::table('package_takens')
+        $pts = DB::table('package_takens')
         ->select(['package_takens.id','packages.nama', 'vendors.name','package_takens.created_at', 'package_takens.updated_at'])
         ->join('vendors', 'vendors.id', '=', 'package_takens.vendor_id')
         ->join('packages', 'packages.id', '=', 'package_takens.package_id')
         ->where('package_takens', '=', $id)
         ;
 
-        return Datatables::of($users)
+        return Datatables::of($pts)
        
        
-        ->addColumn('action', function ($user) {
+        ->addColumn('action', function ($pt) {
 
             $html = '<div class="text-center btn-group btn-group-justified">';
 
             if (in_array(122, session()->get('allowed_menus'))) {
-                $html .= '<a href="couple/'.$user->id.'/edit"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a>';
+                $html .= '<a href="package-taken/'.$pt->id.'/edit"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a>';
             }
 
             $html .= '</div>';
@@ -143,9 +143,17 @@ class PackageTakenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PackageTaken $pt)
     {
-        //
+        if (in_array(142, session()->get('allowed_menus'))) {
+            // $data['pt'] = PackageTaken::find($id);
+             $data['packages'] = Package::select('id', 'nama')->orderBy('id')->get();
+             $data['vendors'] = Vendor::select('id', 'name')->orderBy('id')->get();
+        
+            return view('package_taken.edit', compact('pt'), $data);
+        } else {
+            //
+        }
     }
 
     /**
@@ -155,9 +163,26 @@ class PackageTakenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PackageTaken $pt, Request $request)
     {
-        //
+        // $pt = new PackageTaken();
+
+        $package_id = $request->input('package_id');
+        $vendor_id = $request->input('vendor_id');
+        $keterangan = $request->input('keterangan');
+        
+        // $pt->save();
+        // DB::commit();
+
+                PackageTaken::findOrFail($pt->id)->update([
+                    'package_id' => $package_id,
+                    'vendor_id' => $vendor_id,
+                    'keterangan' => $keterangan
+                ]);
+
+                DB::commit();
+
+                return redirect()->back();
     }
 
     /**
@@ -166,8 +191,18 @@ class PackageTakenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user)
     {
-        //
+        DB::beginTransaction();
+
+        try {
+            $user->delete();
+
+            DB::commit();
+            echo 'success';
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollBack();
+            echo 'Error ('.$e->errorInfo[1].'): '.$e->errorInfo[2].'.';
+        }
     }
 }

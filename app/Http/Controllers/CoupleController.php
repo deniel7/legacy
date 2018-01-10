@@ -42,6 +42,10 @@ class CoupleController extends Controller
             if (in_array(122, session()->get('allowed_menus'))) {
                 $html .= '<a href="/package_taken/'.$user->id.'"><button type="button" class="btn btn-sm btn-success"><i class="fa fa-list"></i></button></a>';
             }
+
+            if (in_array(123, session()->get('allowed_menus'))) {
+                $html .= '<a href="javascript:;" onclick="coupleModule.confirmDelete(event, \''.$user->id.'\');"><button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>';
+            }
             
             $html .= '</div>';
 
@@ -59,18 +63,6 @@ class CoupleController extends Controller
         }
     }
     
-
-    public function edit($id)
-    {
-        if (in_array(142, session()->get('allowed_menus'))) {
-            $data['user'] = User::find($id);
-            $data['status_users'] = User::select('active')->groupBy('active')->get();
-        
-            return view('couple.edit', $data);
-        } else {
-            //
-        }
-    }
 
     public function getPreviewImage($id)
     {
@@ -188,12 +180,12 @@ class CoupleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($karyawan_harian)
+    public function destroy($user)
     {
         DB::beginTransaction();
 
         try {
-            $karyawan_harian->delete();
+            $user->delete();
 
             DB::commit();
             echo 'success';
@@ -211,13 +203,22 @@ class CoupleController extends Controller
 
     public function store(Request $request)
     {
-        
+        $pdf = $request->file('pdf');
+
+        if (!empty($pdf)) {
+            $filename = $pdf->getClientOriginalName();
+            $destinationPath = public_path('/images/upload/pdf');
+            $proses = $request->file('pdf')->move($destinationPath, $filename);
+        } else {
+            $filename = '';
+        }
+
         $project = new Project();
         $project->user_id = $request->input('username');
         $project->deskripsi = $request->input('deskripsi');
         $project->quotes = $request->input('quotes');
         $project->summary = $request->input('summary');
-        $project->main_rundown = $request->input('main_rundown');
+        $project->main_rundown = $filename;
         $project->save();
 
         DB::commit();
@@ -225,5 +226,42 @@ class CoupleController extends Controller
 
         return redirect('couple');
         
+    }
+
+    public function edit($id)
+    {
+        if (in_array(142, session()->get('allowed_menus'))) {
+            $data['projects'] = Project::find($id);
+
+            //$data['status_users'] = User::select('active')->groupBy('active')->get();
+        
+            return view('couple.edit', $data);
+        } else {
+            //
+        }
+    }
+
+    public function update(Project $project, Request $request, $id)
+    {
+        $pdf = $request->input('pdf');
+        $old_pdf = $request->input('old_pdf');
+
+        if (!empty($pdf)) {
+            $mr = $pdf;
+        } else {
+            $mr = $old_pdf;
+        }
+
+
+        $project = Project::find($id);
+
+        $project->deskripsi = $request->input('deskripsi');
+        $project->quotes = $request->input('quotes');
+        $project->summary = $request->input('summary');
+        $project->main_rundown = $mr;
+        $project->save();
+        DB::commit();
+
+        return redirect('couple');
     }
 }

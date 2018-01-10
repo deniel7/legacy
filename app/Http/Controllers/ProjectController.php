@@ -21,4 +21,19 @@ class ProjectController extends Controller
 
         return view('projects.index', $data);
     }
+
+    public function destroy($user)
+    {
+        DB::beginTransaction();
+
+        try {
+            $user->delete();
+
+            DB::commit();
+            echo 'success';
+        } catch (\Illuminate\Database\QueryException $e) {
+            DB::rollBack();
+            echo 'Error ('.$e->errorInfo[1].'): '.$e->errorInfo[2].'.';
+        }
+    }
 }
