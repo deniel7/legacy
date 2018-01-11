@@ -7,41 +7,38 @@
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
       <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <img src="{{asset('images/frontend/c.jpg')}}" alt="Chania" width="460" height="345">
+        <img src="{{asset('images/frontend/banner 001.jpg')}}">
         <div class="carousel-caption">
-          <h3>Chania</h3>
-          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+          <!-- <h3>Chania</h3>
+          <p>The atmosphere in Chania has a touch of Florence and Venice.</p> -->
         </div>
       </div>
 
       <div class="item">
-        <img src="{{asset('images/frontend/b.jpg')}}" alt="Chania" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Chania</h3>
-          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-        </div>
+        <img src="{{asset('images/frontend/banner 002.jpg')}}">
+        
       </div>
     
       <div class="item">
-        <img src="{{asset('images/frontend/b.jpg')}}" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Flowers</h3>
-          <p>Beautiful flowers in Kolymbari, Crete.</p>
-        </div>
+        <img src="{{asset('images/frontend/banner 003.jpg')}}">
+        
       </div>
 
       <div class="item">
-        <img src="{{asset('images/frontend/c.jpg')}}" alt="Flower" width="460" height="345">
-        <div class="carousel-caption">
-          <h3>Flowers</h3>
-          <p>Beautiful flowers in Kolymbari, Crete.</p>
-        </div>
+        <img src="{{asset('images/frontend/banner 004.jpg')}}">
+        
+      </div>
+
+      <div class="item">
+        <img src="{{asset('images/frontend/banner 005.jpg')}}">
+        
       </div>
   
     </div>

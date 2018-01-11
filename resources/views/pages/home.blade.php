@@ -5,6 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
+                    <div class="hl"></div>
                     <h2 class="section-heading">The Special Days</h2>
                     <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                     <h3>
@@ -31,6 +32,33 @@
                 </div>
                 @endforeach
                 
+            </div>
+            <div class="row">
+            <div class="col-lg-12 text-center">
+                <?php $instagram = json_decode($instagrams); ?>
+                <div class="hl"></div>
+                    <h2 class="section-heading">Instagram Feed</h2>
+            </div>
+                @for($i=0; $i <= 2; $i++)
+                    
+
+
+                    <div class="col-md-4 col-sm-6 portfolio-item">
+                        
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                       
+                        
+                        <img class="img-responsive" src="{{ $instagram[$i]->images->standard_resolution->url }}" />
+                    </div>
+
+                @endfor
+
+                
+
             </div>
         </div>
     </section>

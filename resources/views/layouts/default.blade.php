@@ -6,9 +6,9 @@
 </head>
 <body id="page-top" class="index">
     <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    
     @include('includes.navbar')
-    </nav>
+    
     <header>
         @include('includes.header')
     </header>

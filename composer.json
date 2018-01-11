@@ -18,7 +18,8 @@
         "anhskohbo/no-captcha": "^3.0",
         "intervention/image": "^2.4",
         "tsawler/laravel-filemanager": "^0.6.2",
-        "UniSharp/laravel-filemanager": "^1.8"
+        "UniSharp/laravel-filemanager": "^1.8",
+        "vinkla/instagram": "^4.1"
     },
     "require-dev": {
         "symfony/dom-crawler": "~2.7",

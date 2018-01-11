@@ -14,6 +14,12 @@
     <link href="{{asset('front/agency/css/agency.css')}}" rel="stylesheet">
     
     <style>
+    .hl {
+    border-bottom: 1px solid #d5c0b4;;
+    width: 400px;
+    margin:0 auto;
+    margin-bottom: 100px;
+    }
 
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {

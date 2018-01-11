@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Contact;
+use Vinkla\Instagram\Facades\Instagram;
 
 class FrontController extends Controller
 {
@@ -22,8 +23,10 @@ class FrontController extends Controller
         join galleries g on p.id = g.project_id
         ");
 
+         $response     = Instagram::users()->getMedia('self');
+        $instagrams   =  json_encode($response->get());
 
-        return view('pages.home', $data);
+        return view('pages.home', $data, compact('instagrams'));
     }
 
     public function getDetail($id)

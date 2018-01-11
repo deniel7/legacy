@@ -157,7 +157,7 @@ return [
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
-
+        Vinkla\Instagram\InstagramServiceProvider::class,
     ],
 
     /*
@@ -218,7 +218,7 @@ return [
         'Alert' => Prologue\Alerts\Facades\Alert::class,
         'Form' => Collective\Html\FormFacade::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
-
+        'Instagram' => Vinkla\Instagram\Facades\Instagram::class,
         
 
     ],

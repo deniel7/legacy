@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top container-fluid">
+<nav class="navbar navbar-default container-fluid">
   <div class="container">
     <div class="navbar-header">
       <div class="pull-left " style="margin-top:60px">
@@ -12,7 +12,7 @@
 
       <div class="navbar-inner visible-xs">
         <div class="nav-center">
-         <a href="/" ><span class="App_logo_plus"></span><span class="App_logo"><img src="{{asset('front/agency/img/legacy.jpg')}}"/></span></a>
+         <a href="/" ><span class="App_logo_plus"></span><span class="App_logo"><img src="{{asset('front/agency/img/logo_mbl.png')}}"/></span></a>
         </div>
       </div>
 
@@ -31,7 +31,7 @@
 
       <div class="navbar-inner hidden-xs">
         <div class="nav-center">
-         <a href="/" ><span class="App_logo_plus"></span><span class="App_logo"><img src="{{asset('front/agency/img/legacy2.jpg')}}"/></span></a>
+         <a href="/" ><span class="App_logo_plus"></span><span class="App_logo"><img src="{{asset('front/agency/img/logo.png')}}"/></span></a>
         </div>
       </div>
 

@@ -11,6 +11,31 @@
 |
 */
 
+//FRONTEND ROUTES
+    Route::get('/home', ['uses' => 'UserController@getHome']);
+    Route::controller('/auth', 'Auth\AuthController');
+    Route::controller('/password', 'Auth\PasswordController');
+      
+    Route::get('/user/home', ['uses' => 'UserController@getHome']);
+    Route::controller('user', 'Auth\UserController');
+    Route::controller('/user/password', 'Auth\UserPasswordController');
+
+    Route::get('/', 'FrontController@index');
+    Route::get('/detail/{id}', 'FrontController@getDetail');
+    Route::get('/project', 'ProjectController@index');
+    Route::get('/client', 'ClientController@index');
+    Route::get('client-home', 'ClientController@home');
+    Route::get('/about', 'FrontController@getAbout');
+    Route::get('/contact', 'FrontController@getContact');
+    Route::post('post-contact', 'FrontController@doSend');
+    Route::post('contact', ['as'=>'front.post_contact','uses'=>'FrontController@post_contact']);
+
+    Route::resource('project', 'ProjectController');
+    Route::controller('project', 'ProjectController');
+    
+    
+
+
 Route::get('register', [
    'as' => 'register', 'uses' => 'ClientController@register'
  ]);
@@ -43,28 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 
-    //FRONTEND ROUTES
-    Route::get('/home', ['uses' => 'UserController@getHome']);
-    Route::controller('/auth', 'Auth\AuthController');
-    Route::controller('/password', 'Auth\PasswordController');
-      
-    Route::get('/user/home', ['uses' => 'UserController@getHome']);
-    Route::controller('user', 'Auth\UserController');
-    Route::controller('/user/password', 'Auth\UserPasswordController');
-
-    Route::get('/', 'FrontController@index');
-    Route::get('/detail/{id}', 'FrontController@getDetail');
-    Route::get('/project', 'ProjectController@index');
-    Route::get('/client', 'ClientController@index');
-    Route::get('client-home', 'ClientController@home');
-    Route::get('/about', 'FrontController@getAbout');
-    Route::get('/contact', 'FrontController@getContact');
-    Route::post('post-contact', 'FrontController@doSend');
-    Route::post('contact', ['as'=>'front.post_contact','uses'=>'FrontController@post_contact']);
-
-    Route::resource('/packages', 'PackageController');
-    Route::controller('packages', 'PackageController');
-    Route::post('datatable/packages', 'PackageController@datatable');
+    
 
 
 
@@ -91,8 +95,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::model('project', 'App\Project');
     Route::model('package-taken', 'App\PackageTaken');
 
-    Route::resource('project', 'ProjectController');
-    Route::controller('project', 'ProjectController');
+    
     // Route::post('datatable/couples', 'CoupleController@datatable');
 
 
@@ -117,7 +120,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('datatable/contacts', 'ContactController@datatable');
 
 
-
+    Route::resource('/packages', 'PackageController');
+    Route::controller('packages', 'PackageController');
+    Route::post('datatable/packages', 'PackageController@datatable');
 
 
     Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');

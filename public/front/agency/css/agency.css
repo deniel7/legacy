@@ -3,9 +3,14 @@
 * Copyright 2013-2016 Start Bootstrap
 * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
 */
+@font-face {
+font-family: "Shonar";
+
+}
+
 body {
     overflow-x: hidden;
-    font-family: "Oxygen", Helvetica, Arial, sans-serif;
+    font-family: "Shonar";
 }
 
 .text-muted {
@@ -38,7 +43,7 @@ a:hover, a:focus, a:active, a.active {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Oxygen", Helvetica, Arial, sans-serif;
+    font-family: "Shonar";
     text-transform: uppercase;
     font-weight: 700;
 }
@@ -268,9 +273,8 @@ section h3.section-subheading {
 }
 
 #portfolio .portfolio-item .portfolio-caption p {
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-style: italic;
-    font-size: 16px;
+    font-family: "Shonar";
+    font-size: 18px;
     margin: 0;
 }
 
