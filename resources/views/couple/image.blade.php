@@ -81,17 +81,17 @@
         </div> -->
 
         <div class="col-md-12">
-        <label>Main Picture</label>
-            
+        <label>MAIN PICTURE</label><br/>
+        <label>Please upload image for this Main Picture on resolution : 1280 x 600 pixels with Landscape Orientation</label>
 
-            {!! Form::file('image', array('class' => 'image')) !!}
+            {!! Form::file('image1', array('class' => 'image')) !!}
 
         </div>
 
+        <br/><br/><br/><br/><br/>
+
         <div class="col-md-6">
-
-            <br/>
-
+        <br/>
             {!! Form::file('image2', array('class' => 'image')) !!}
 
         </div>
@@ -136,6 +136,23 @@
 
         </div>
 
+        <div class="col-md-6">
+
+            <br/>
+
+            {!! Form::file('image8', array('class' => 'image')) !!}
+
+        </div>
+
+        <div class="col-md-6">
+
+            <br/>
+
+            {!! Form::file('image9', array('class' => 'image')) !!}
+
+        </div>
+
+       
 
         <div class="col-md-12">
 

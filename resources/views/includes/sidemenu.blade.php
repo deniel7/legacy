@@ -15,11 +15,7 @@
             <!-- Brand -->
             <div class="brand-name-wrapper">
 
-                <a class="navbar-brand" href="#">
-                    
-                    Hi! {{ Auth::user()->get()->username }}
-                </a>
-                <a href="{{ url('user-logout') }}"><button type="button" class="navbar-brand btn btn-default btn-sm pull-right"><p>Logout</p></button></a>
+                <a href="{{ url('user-logout') }}"><button type="button" class="navbar-brand btn btn-default btn-sm pull-left"><p>Logout</p></button></a>
                 
             </div>
 
@@ -45,14 +41,15 @@
 
     <!-- Main Menu -->
     <div class="side-menu-container">
+        
         <ul class="nav navbar-nav">
-
+        <center><h3 class="section-subheading">WEDDING PLAN</h3></center>
             <br/>
             <li class="active"><a href="{{ url('client-home') }}"><b>HOME</b></a></li>
 
             <!-- Dropdown-->
             @foreach ($packages as $package)
-            <li class="active"><a href="{{ url('/packages/'.$package->id) }}"><b>{{ strtoupper($package->nama) }} </b><p>Last Update : {{ $package->updated_at }}</p></a></li>
+            <li class="active"><a href="{{ url('/packages/'.$package->id) }}"><b>{{ strtoupper($package->nama) }} </b><p style="color:#d5c0b4">Last Update : {{ $package->updated_at }}</p></a></li>
             @endforeach
         </ul>
     </div><!-- /.navbar-collapse -->

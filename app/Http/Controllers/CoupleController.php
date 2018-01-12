@@ -80,13 +80,16 @@ class CoupleController extends Controller
 
         $this->validate($request, [
 
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image3' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image4' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image5' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image6' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'image7' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image1' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        'image2' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        'image3' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        'image4' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        'image5' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        'image6' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        'image7' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        'image8' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        'image9' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        
 
         ]);
 
@@ -96,8 +99,8 @@ class CoupleController extends Controller
 
 
         $files =[];
-        if ($request->file('image')) {
-            $files[] = $request->file('image');
+        if ($request->file('image1')) {
+            $files[] = $request->file('image1');
         }
         if ($request->file('image2')) {
             $files[] = $request->file('image2');
@@ -108,7 +111,7 @@ class CoupleController extends Controller
         if ($request->file('image4')) {
             $files[] = $request->file('image4');
         }
-        if ($request->file('imag5')) {
+        if ($request->file('image5')) {
             $files[] = $request->file('image5');
         }
         if ($request->file('image6')) {
@@ -117,11 +120,17 @@ class CoupleController extends Controller
         if ($request->file('image7')) {
             $files[] = $request->file('image7');
         }
+        if ($request->file('image8')) {
+            $files[] = $request->file('image8');
+        }
+        if ($request->file('image9')) {
+            $files[] = $request->file('image9');
+        }
 
         $destinationPath = public_path('images/upload/thumbnail');
-
+        
         foreach ($files as $file) {
-            if (!empty($file)) {
+            // if (!empty($file)) {
                 $filename=$file->getClientOriginalName();
 
 
@@ -138,7 +147,7 @@ class CoupleController extends Controller
                 $destinationPath = public_path('/images/upload');
 
                 $file->move($destinationPath, $filename);
-            }
+            // }
         }
 
 
@@ -147,13 +156,16 @@ class CoupleController extends Controller
 
         $obj = array(
                 'project_id' => $id,
-                'gbr1' => (count($files) > 0) ? $imgUploadPath . '/thumbnail/' . $files[0]->getClientOriginalName() : '',
-                'gbr2' => (count($files) > 1) ? $imgUploadPath . '/' . $files[1]->getClientOriginalName() : '',
-                'gbr3' => (count($files) > 2) ? $imgUploadPath . '/' . $files[2]->getClientOriginalName() : '',
-                'gbr4' => (count($files) > 3) ? $imgUploadPath . '/' . $files[3]->getClientOriginalName() : '',
-                'gbr5' => (count($files) > 4) ? $imgUploadPath . '/' . $files[4]->getClientOriginalName() : '',
-                'gbr6' => (count($files) > 5) ? $imgUploadPath . '/' . $files[5]->getClientOriginalName() : '',
-                'gbr7' => (count($files) > 6) ? $imgUploadPath . '/' . $files[6]->getClientOriginalName() : '',
+                'gbr1' => (count($files) > 0) ? $files[0]->getClientOriginalName() : '',
+                'gbr2' => (count($files) > 1) ? $files[1]->getClientOriginalName() : '',
+                'gbr3' => (count($files) > 2) ? $files[2]->getClientOriginalName() : '',
+                'gbr4' => (count($files) > 3) ? $files[3]->getClientOriginalName() : '',
+                'gbr5' => (count($files) > 4) ? $files[4]->getClientOriginalName() : '',
+                'gbr6' => (count($files) > 5) ? $files[5]->getClientOriginalName() : '',
+                'gbr7' => (count($files) > 6) ? $files[6]->getClientOriginalName() : '',
+                'gbr8' => (count($files) > 7) ? $files[7]->getClientOriginalName() : '',
+                'gbr9' => (count($files) > 8) ? $files[8]->getClientOriginalName() : '',
+                
             );
         DB::table('galleries')->insert($obj);
 

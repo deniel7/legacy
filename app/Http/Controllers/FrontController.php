@@ -21,6 +21,8 @@ class FrontController extends Controller
         $data['projects'] = DB::select("select p.id,u.pengantin_pria, u.pengantin_wanita, p.quotes, g.gbr1 from projects p 
         join users u on p.user_id = u.id
         join galleries g on p.id = g.project_id
+        order by id DESC
+        LIMIT 6
         ");
 
          $response     = Instagram::users()->getMedia('self');
@@ -54,7 +56,13 @@ class FrontController extends Controller
 
     public function getAbout()
     {
-        return 'This Page is Under Construction';
+        $data['projects'] = DB::select("select p.id,u.pengantin_pria, u.pengantin_wanita, p.quotes, g.gbr1 from projects p 
+        join users u on p.user_id = u.id
+        join galleries g on p.id = g.project_id
+        order by id DESC
+        LIMIT 6
+        ");
+        return view('pages.about', $data);
     }
 
     public function getContact()
@@ -62,6 +70,8 @@ class FrontController extends Controller
         $data['projects'] = DB::select("select p.id,u.pengantin_pria, u.pengantin_wanita, p.quotes, g.gbr1 from projects p 
         join users u on p.user_id = u.id
         join galleries g on p.id = g.project_id
+        order by id DESC
+        LIMIT 6
         ");
         return view('contact.index', $data);
     }

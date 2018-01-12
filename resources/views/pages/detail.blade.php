@@ -7,7 +7,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item">
-                <img src="{{ url($detail->gbr1) }}" data-color="lightblue" alt="First Image">
+                <img src="{{ url('images/upload/'.$detail->gbr1) }}" data-color="lightblue" alt="First Image" style="background-repeat:no-repeat">
                 <div class="carousel-caption">
                     
                     <h3>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h3>
@@ -38,7 +38,9 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="{{ url($detail->gbr2) }}" class="img-responsive" alt="">
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr2) }}" class="img-responsive" alt="">
+                    </div>
                 </a>
                 <!-- <div class="portfolio-caption">
                     <h4>Round Icons</h4>
@@ -52,7 +54,9 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="{{ url($detail->gbr3) }}" class="img-responsive" alt="">
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr3) }}" class="img-responsive" alt="">
+                    </div>
                 </a>
                 <!-- <div class="portfolio-caption">
                     <h4>Startup Framework</h4>
@@ -66,7 +70,9 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="{{ url($detail->gbr4) }}" class="img-responsive" alt="">
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr4) }}" class="img-responsive" alt="">
+                    </div>
                 </a>
                 <!-- <div class="portfolio-caption">
                     <h4>Treehouse</h4>
@@ -81,7 +87,9 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="{{ url($detail->gbr5) }}" class="img-responsive" alt="">
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr5) }}" class="img-responsive" alt="">
+                    </div>
                 </a>
                 <!-- <div class="portfolio-caption">
                     <h4>Round Icons</h4>
@@ -95,7 +103,9 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="{{ url($detail->gbr6) }}" class="img-responsive" alt="">
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr6) }}" class="img-responsive" alt="">
+                    </div>
                 </a>
                 <!-- <div class="portfolio-caption">
                     <h4>Startup Framework</h4>
@@ -109,7 +119,41 @@
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img src="{{ url($detail->gbr7) }}" class="img-responsive" alt="">
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr7) }}" class="img-responsive" alt="">
+                    </div>
+                </a>
+                <!-- <div class="portfolio-caption">
+                    <h4>Treehouse</h4>
+                    <p class="text-muted">Website Design</p>
+                </div> -->
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal8" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr8) }}" class="img-responsive" alt="">
+                    </div>
+                </a>
+                <!-- <div class="portfolio-caption">
+                    <h4>Treehouse</h4>
+                    <p class="text-muted">Website Design</p>
+                </div> -->
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal9" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="gambar">
+                    <img src="{{ url('images/upload/'.$detail->gbr9) }}" class="img-responsive" alt="">
+                    </div>
                 </a>
                 <!-- <div class="portfolio-caption">
                     <h4>Treehouse</h4>
@@ -138,7 +182,7 @@
                                 <!-- Project Details Go Here -->
                                 <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
                                 <p class="item-intro text-muted">{{ $detail->quotes }}</p>
-                                <img class="img-responsive img-centered" src="{{ url($detail->gbr2) }}" alt="">
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr2) }}" alt="">
                                 <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -168,7 +212,7 @@
                                 <!-- Project Details Go Here -->
                                 <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
                                 <p class="item-intro text-muted">{{ $detail->quotes }}</p>
-                                <img class="img-responsive img-centered" src="{{ url($detail->gbr3) }}" alt="">
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr3) }}" alt="">
                                 <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -196,7 +240,7 @@
                                 <!-- Project Details Go Here -->
                                 <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
                                 <p class="item-intro text-muted">{{ $detail->quotes }}</p>
-                                <img class="img-responsive img-centered" src="{{ url($detail->gbr4) }}" alt="">
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr4) }}" alt="">
                                 <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -224,7 +268,7 @@
                                 <!-- Project Details Go Here -->
                                 <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
                                 <p class="item-intro text-muted">{{ $detail->quotes }}</p>
-                                <img class="img-responsive img-centered" src="{{ url($detail->gbr5) }}" alt="">
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr5) }}" alt="">
                                 <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -252,7 +296,7 @@
                                 <!-- Project Details Go Here -->
                                 <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
                                 <p class="item-intro text-muted">{{ $detail->quotes }}</p>
-                                <img class="img-responsive img-centered" src="{{ url($detail->gbr6) }}" alt="">
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr6) }}" alt="">
                                 <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -279,7 +323,61 @@
                                 <!-- Project Details Go Here -->
                                 <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
                                 <p class="item-intro text-muted">{{ $detail->quotes }}</p>
-                                <img class="img-responsive img-centered" src="{{ url($detail->gbr7) }}" alt="">
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr7) }}" alt="">
+                                <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
+                                <p class="item-intro text-muted">{{ $detail->quotes }}</p>
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr8) }}" alt="">
+                                <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h2>
+                                <p class="item-intro text-muted">{{ $detail->quotes }}</p>
+                                <img class="img-responsive img-centered" src="{{ url('images/upload/'.$detail->gbr9) }}" alt="">
                                 <!--                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p> -->
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>

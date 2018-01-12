@@ -30,7 +30,7 @@
           </div>
 
       <div class="navbar-inner hidden-xs">
-        <div class="nav-center">
+        <div class="nav-center"><br/>
          <a href="/" ><span class="App_logo_plus"></span><span class="App_logo"><img src="{{asset('front/agency/img/logo.png')}}"/></span></a>
         </div>
       </div>

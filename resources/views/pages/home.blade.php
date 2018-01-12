@@ -23,7 +23,7 @@
                             </div>
                         </div>
                        
-                        <img src="{{ url($project->gbr1) }}" class="img-responsive" alt="">
+                        <img src="{{ url('images/upload/thumbnail/'.$project->gbr1) }}" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <p style="color:#d5c0b4 !important">{{ strtoupper($project->pengantin_pria) }} & {{ strtoupper($project->pengantin_wanita) }}</p>
@@ -37,7 +37,7 @@
             <div class="col-lg-12 text-center">
                 <?php $instagram = json_decode($instagrams); ?>
                 <div class="hl"></div>
-                    <h2 class="section-heading">Instagram Feed</h2>
+                    <h4 class="section-subheading">Instagram Feed</h4>
             </div>
                 @for($i=0; $i <= 2; $i++)
                     

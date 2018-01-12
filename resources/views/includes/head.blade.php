@@ -13,12 +13,24 @@
     <!-- Theme CSS -->
     <link href="{{asset('front/agency/css/agency.css')}}" rel="stylesheet">
     
+    <link href="{{asset('front/agency/font/Shonar_O.ttf')}}" rel="stylesheet">
+
     <style>
+
+    .gambar {
+    width: 350px;
+    min-height: 350px;
+    max-height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}
+
     .hl {
     border-bottom: 1px solid #d5c0b4;;
     width: 400px;
     margin:0 auto;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     }
 
   .carousel-inner > .item > img,

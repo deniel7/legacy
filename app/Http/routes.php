@@ -33,7 +33,9 @@
     Route::resource('project', 'ProjectController');
     Route::controller('project', 'ProjectController');
     
-    
+    Route::resource('/packages', 'PackageController');
+    Route::controller('packages', 'PackageController');
+    Route::post('datatable/packages', 'PackageController@datatable');
 
 
 Route::get('register', [
@@ -120,9 +122,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('datatable/contacts', 'ContactController@datatable');
 
 
-    Route::resource('/packages', 'PackageController');
-    Route::controller('packages', 'PackageController');
-    Route::post('datatable/packages', 'PackageController@datatable');
+    
 
 
     Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
