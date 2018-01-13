@@ -54,10 +54,12 @@
                         <li>{{ $project->pengantin_pria }} & {{ $project->pengantin_wanita }}</li>
                         @endforeach
                     </ul>
+                    <a href="{{ url('/project') }}">more...</a>
                 </div>
                 <div class="col-sm-4 info">
                     <h5><u>ABOUT US</u></h5>
                     <p> <b>Hello, thank you for reaching out for us ! <br/> We are Wedding Planner and Organizer </b><br/> We are timekeeper, counselor, personal shopper and designer rolled into one. <br/> <b>Your unforgetable moment</b></p>
+                    <a href="{{ url('/about') }}">more...</a>
                 </div>
             </div>
         </div>

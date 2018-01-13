@@ -139,26 +139,49 @@ class FrontController extends Controller
             function ($message) {
             
                 $message->from(env('MAIL_USERNAME', null));
-                $message->to(env('MAIL_USERNAME', null), 'Site Admin')->subject('Email from user website ');
+                $message->to(env('MAIL_USERNAME', null), 'Site Admin')->subject('Email from Contact on website Legacy Wedding Organizer');
             }
         );
 
+        $input = $request->all();
+        $input['nama'] = $request->input('name');
+        $input['email'] = $request->input('email');
+        $input['phone'] = $request->input('phone');
+        $input['message'] = $request->input('message');
 
-        $contact = new Contact();
-        $contact->nama = $request->input('name');
-        $contact->email = $request->input('email');
-        $contact->phone = $request->input('phone');
-        $contact->message = $request->input('message');
-        $contact->save();
+        $contact = Contact::create($input);
 
-        DB::commit();
+        // $contact = new Contact();
+        // $contact->nama = $request->input('name');
+        // $contact->email = $request->input('email');
+        // $contact->phone = $request->input('phone');
+        // $contact->message = $request->input('message');
+        // $contact->save();
+
+        // DB::commit();
        
         Log::info('IP from '.$request->getClientIp(). ' sent email to your site');
 
+        $data = [
+        'name' => $input['name']
+        ];
         
-
+        $this->sendEmail($data, $input);
         //Redirect back
         Alert::success('Thanks for contact us!');
         return redirect('contact');
+    }
+
+    public function sendEmail($data, $input)
+    {
+ 
+         Mail::send('emails.replycontact', $data, function ($message) use ($input) {
+ 
+            $message->from('support@legacyweddingorganizer.com', 'Support');
+
+            $message->to($input['email'], $input['name'])->subject('Thanks for contact Legacy Wedding Organizer');
+ 
+         });
+
     }
 }

@@ -25,6 +25,7 @@
     Route::get('/project', 'ProjectController@index');
     Route::get('/client', 'ClientController@index');
     Route::get('client-home', 'ClientController@home');
+    Route::get('client-wedding-data', 'ClientController@weddingData');
     Route::get('/about', 'FrontController@getAbout');
     Route::get('/contact', 'FrontController@getContact');
     Route::post('post-contact', 'FrontController@doSend');

@@ -14,8 +14,6 @@ Name :
 Messages
 {{ $messages }}
 <br/>
-Phone
-{{ $phone }}
 
 Cheers,<br><br>
 

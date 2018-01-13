@@ -31,6 +31,7 @@
             @endforeach
 
             {!! Form::open(['url'=>route('front.post_contact')]) !!}
+            {!! csrf_field() !!}
             <div class="row control-group">
                 <div class="form-group col-xs-12 floating-label-form-group controls">
                     {!! Form::label('name','Name') !!}

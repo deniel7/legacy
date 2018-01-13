@@ -18,8 +18,9 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                       
-                        <img src="{{ url($project->gbr1) }}" class="img-responsive" alt="">
+                        <div class="gambar">
+                        <img src="{{ url('images/upload/'.$project->gbr1) }}" class="img-responsive" alt="">
+                        </div>
                     </a>
                     <div class="portfolio-caption">
                         <h4 style="color:black !important">{{ $project->pengantin_pria }} & {{ $project->pengantin_wanita }}</h4>
