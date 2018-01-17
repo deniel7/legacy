@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-//use App\User;
+use App\User;
 use App\SysUser;
 use App\SysUserAttribute;
 use Validator;
@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
 class AuthController extends Controller
 {
@@ -25,7 +26,7 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins, AuthenticableTrait;
 
     /* Ganti email menjadi username */
     protected $username = 'username';
@@ -41,6 +42,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+        $user = Auth::user();
     }
     
     /**
@@ -151,5 +153,19 @@ class AuthController extends Controller
             'created_by' => 1,
             'updated_by' => 1
         ]);
+    }
+
+    public function getActivate($code)
+    {
+        //$user = $request->user();
+        // $user = Auth::user();
+        $user = User::where('activation_code', $code)->first();
+        if ($user) {
+            if ($user->activateAccount($code)) {
+                 return redirect('client');
+            }
+        }
+        return 'Fail';
+ 
     }
 }

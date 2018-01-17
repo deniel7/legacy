@@ -7,19 +7,21 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Flash;  
+use Flash;
 use Auth;
 use Hash;
 
 class AuthController extends Controller
 {
     /* Show my account page */
-    function getMyAccount() {
+    function getMyAccount()
+    {
         return view('user/index');
     }
 
     /* Show my account page */
-    function postUpdateProfile(Request $request) {
+    function postUpdateProfile(Request $request)
+    {
 
         $user = Auth::user();
 
@@ -31,12 +33,9 @@ class AuthController extends Controller
         $user->full_name = $request->full_name;
         $user->email = $request->email;
 
-        if($user->save())
-        {
+        if ($user->save()) {
             Flash::success('Your profile is saved.');
-        }
-        else
-        {
+        } else {
             Flash::error('Unable to save your profile.');
         }
 
@@ -44,7 +43,8 @@ class AuthController extends Controller
     }
 
     /* Show my account page */
-    function postUpdatePassword(Request $request) {
+    function postUpdatePassword(Request $request)
+    {
 
         $user = Auth::user();
 
@@ -54,21 +54,15 @@ class AuthController extends Controller
             'new_password_confirmation' => 'required'
         ]);
 
-        if(Hash::check($request->current_password, $user->password))
-        {
+        if (Hash::check($request->current_password, $user->password)) {
             $user->password = Hash::make($request->new_password);
 
-            if($user->save())
-            {
+            if ($user->save()) {
                 Flash::success('Your password is updated.');
-            }
-            else
-            {
+            } else {
                 Flash::error('Unable to update your password.');
             }
-        }
-        else
-        {
+        } else {
             Flash::error('Your current password is wrong.');
         }
 

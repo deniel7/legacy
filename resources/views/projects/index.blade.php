@@ -18,13 +18,12 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <div class="gambar">
-                        <img src="{{ url('images/upload/'.$project->gbr1) }}" class="img-responsive" alt="">
-                        </div>
+                       
+                        <img src="{{ url('images/upload/thumbnail/'.$project->gbr1) }}" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4 style="color:black !important">{{ $project->pengantin_pria }} & {{ $project->pengantin_wanita }}</h4>
-                        <p class="text-muted">{{ $project->quotes }}</p>
+                        <p style="color:#d5c0b4 !important">{{ strtoupper($project->pengantin_pria) }} & {{ strtoupper($project->pengantin_wanita) }}</p>
+                        <!-- <p class="text-muted">{{ $project->quotes }}</p> -->
                     </div>
                 </div>
                 @endforeach

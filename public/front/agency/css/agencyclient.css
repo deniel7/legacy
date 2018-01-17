@@ -5,7 +5,7 @@
 */
 body {
     overflow-x: hidden;
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
 }
 
 .text-muted {
@@ -38,7 +38,7 @@ a:hover, a:focus, a:active, a.active {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
     text-transform: uppercase;
     font-weight: 50;
     color: #d5c0b4;
@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     background-color: #fed136;
     border-color: #fed136;
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
     text-transform: uppercase;
     font-weight: 700;
 }
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     background-color: #fed136;
     border-color: #fed136;
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
     text-transform: uppercase;
     font-weight: 700;
     border-radius: 3px;
@@ -136,7 +136,7 @@ header .intro-text {
 }
 
 header .intro-text .intro-lead-in {
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
     font-style: italic;
     font-size: 22px;
     line-height: 22px;
@@ -144,7 +144,7 @@ header .intro-text .intro-lead-in {
 }
 
 header .intro-text .intro-heading {
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 50px;
@@ -159,7 +159,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-lead-in {
-        font-family: 'Shonar_O';
+        font-family: "Times New Roman", Times, serif;
         font-style: italic;
         font-size: 40px;
         line-height: 40px;
@@ -167,7 +167,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-heading {
-        font-family: 'Shonar_O';
+        font-family: "Times New Roman", Times, serif;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 75px;
@@ -189,7 +189,7 @@ section h2.section-heading {
 
 section h3.section-subheading {
     font-size: 16px;
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
     text-transform: none;
     font-style: italic;
     font-weight: 400;
@@ -721,6 +721,12 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 ::-moz-selection {
     text-shadow: none;
     background: #fed136;
+    border: none;
+    position: fixed;
+    width: 300px;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
 }
 
 ::selection {
@@ -838,7 +844,7 @@ body {
 
 .event-list {
     list-style: none;
-    font-family: 'Shonar_O';
+    font-family: "Times New Roman", Times, serif;
     margin: 10px;
     padding: 10px;
 }
@@ -1089,6 +1095,11 @@ border-right: 1px solid #e7e7e7;
 
 .side-menu .navbar {
     border: none;
+    position: fixed;
+    width: 300px;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
 }
 
 .side-menu .-header {
@@ -1327,6 +1338,8 @@ border-right: 1px solid #e7e7e7;
         animation: slidein 300ms forwards;
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
+        overflow-y: scroll;
+        height:calc(100% - 50px);
     }
 
     .side-menu-container > .navbar-nav {
@@ -1345,6 +1358,8 @@ border-right: 1px solid #e7e7e7;
         animation: slideout 300ms forwards;
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
+        overflow-y: scroll;
+        height:calc(100% - 50px);
     }
 
     /* Uncomment for scrollable menu -> see top comment */

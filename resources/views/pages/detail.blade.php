@@ -3,20 +3,13 @@
 <!-- Portfolio Grid Section -->
 <header>
     @foreach($details as $detail)
-    <div id="mycarousel" class="carousel slide" data-ride="carousel">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item">
-                <img src="{{ url('images/upload/'.$detail->gbr1) }}" data-color="lightblue" alt="First Image" style="background-repeat:no-repeat">
-                <div class="carousel-caption">
+    <img src="{{ url('images/upload/'.$detail->gbr1) }}" alt="First Image" style="background-repeat:no-repeat">
+    <div class="carousel-caption">
                     
-                    <h3>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h3>
-                    <p>{{ $detail->quotes }}</p>
+                    <!-- <h1>{{ $detail->pengantin_pria }} & {{ $detail->pengantin_wanita }}</h1>
+                    <p>{{ $detail->quotes }}</p> -->
                     
                 </div>
-            </div>
-        </div>
-    </div>
 </header>
 <section id="portfolio" class="bg-light-gray">
     <div class="container">

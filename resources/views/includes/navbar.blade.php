@@ -43,10 +43,7 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    @if (Auth::user()->get())
                     
-
-                    @else
                     <li>
                         <a href="{{ url('/') }}">Home</a>
                     </li>
@@ -66,7 +63,7 @@
                     <li>
                         <a href="{{ url('/contact') }}">Contact</a>
                     </li>
-                    @endif
+                   
                
       </ul>
     </div>

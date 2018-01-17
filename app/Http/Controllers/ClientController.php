@@ -10,6 +10,7 @@ use App\Http\Requests\RegistrationRequest;
 use App\User;
 use App\Project;
 use App\Package;
+use App\Event;
 use Auth;
 use DB;
 use Mail;
@@ -17,6 +18,11 @@ use App\Http\Requests\LoginRequest;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $user = Auth::user();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -82,17 +88,6 @@ class ClientController extends Controller
 
     }
 
-    public function activate($code, User $user)
-    {
-
-        if ($user->activateAccount($code)) {
-             return 'Activated!';
-        }
-
-        return 'Fail';
- 
-    }
-
 
     public function login(LoginRequest $request)
     {
@@ -148,78 +143,40 @@ class ClientController extends Controller
 
         //DB::connection()->enableQueryLog();
 
-        $data['events'] = Project::select(['events.tanggal','events.event', 'events.updated_at'])
-        ->join('events', 'projects.id', '=', 'events.project_id')
-        ->where('projects.user_id', '=', $user_id)->get();
+        $data['events'] = Event::select(['events.tanggal','events.event', 'events.updated_at'])
+        ->join('users', 'users.id', '=', 'events.user_id')
+        ->where('users.id', '=', $user_id)->get();
         //$queries = DB::getQueryLog();
 
         //dd($queries);
         return view('client.home', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function weddingData()
     {
-        //
+        $user_id =  Auth::user()->get()->id;
+
+        $data['packages'] = DB::select("select p.id, p.nama, pt.updated_at from package_takens pt 
+        join packages p on pt.package_id = p.id
+        join projects pr on pr.id = pt.project_id
+        where pr.user_id =".$user_id." 
+        ");
+
+        $data['projects'] = DB::select("select * from projects where user_id = 
+        ".$user_id);
+
+        
+
+        $data['events'] = Event::select(['events.tanggal','events.event', 'events.updated_at'])
+        ->join('users', 'users.id', '=', 'events.user_id')
+        ->where('events.user_id', '=', $user_id)->get();
+        
+
+        return view('client.wedding-data', $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function weddingDataBestmen()
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('client.wedding-data-bestmen');
     }
 }

@@ -13,15 +13,15 @@
             
             <li>
                 <time datetime="2014-07-31 1600">
-                <span class="day"><?php echo date('d', strtotime($event->tanggal)); ?></span>
-                <span class="month"><?php echo date('M', strtotime($event->tanggal)); ?></span>
+                <span class="day" style="word-wrap: break-word"><?php echo date('d', strtotime($event->tanggal)); ?></span>
+                <span class="month" style="word-wrap: break-word"><?php echo date('M', strtotime($event->tanggal)); ?></span>
                 
                 
                 </time>
                 
                 <div class="info">
 
-                    <p class="desc"> {{ $event->event}}</p>
+                    <p class="desc" style="word-wrap: break-word"> {{ $event->event}}</p>
                     
                 </div>
             </li>
@@ -39,7 +39,7 @@
             <hr>
             <div class="row">
             <h3>Wedding Data</h3>
-            <a href="{{ url('user-logout') }}"><button type="button" class="navbar-brand btn btn-default btn-sm pull-right"><p>View</p></button>
+            <a href="{{ url('wedding-data') }}"><button type="button" class="navbar-brand btn btn-default btn-sm pull-right"><p>View</p></button>
             </div>
 
              <hr>

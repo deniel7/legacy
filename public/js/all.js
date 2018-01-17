@@ -759,7 +759,7 @@ var packageTakenModule = (function(commonModule) {
 
 
     var confirmDelete = function(event, id) {
-
+        alert('hi');
         event.preventDefault();
 
         swal({

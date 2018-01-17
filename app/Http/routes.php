@@ -25,7 +25,8 @@
     Route::get('/project', 'ProjectController@index');
     Route::get('/client', 'ClientController@index');
     Route::get('client-home', 'ClientController@home');
-    Route::get('client-wedding-data', 'ClientController@weddingData');
+    Route::get('wedding-data', 'ClientController@weddingData');
+    Route::get('wedding-data-bestmen', 'ClientController@weddingDataBestmen');
     Route::get('/about', 'FrontController@getAbout');
     Route::get('/contact', 'FrontController@getContact');
     Route::post('post-contact', 'FrontController@doSend');
@@ -43,7 +44,7 @@ Route::get('register', [
    'as' => 'register', 'uses' => 'ClientController@register'
  ]);
 
-Route::get('/register/activate/{code}', 'ClientController@activate');
+Route::get('/register/activate/{code}', 'Auth\AuthController@getActivate');
 Route::post('post-register', 'ClientController@doRegister');
 
 Route::get('user-logout', 'ClientController@logout');
@@ -101,7 +102,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     // Route::post('datatable/couples', 'CoupleController@datatable');
 
-
+    Route::get('/package-takens/{id}', 'PackageTakenController@destroy');
     Route::get('/package-taken/{id}/create', 'PackageTakenController@create');
     Route::resource('package-taken', 'PackageTakenController');
     Route::controller('package-taken', 'PackageTakenController');
@@ -114,6 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::controller('vendors', 'VendorController');
     Route::post('datatable/vendors', 'VendorController@datatable');
 
+    Route::get('/event/{id}', 'EventController@destroy');
     Route::resource('events', 'EventController');
     Route::controller('events', 'EventController');
     Route::post('datatable/events', 'EventController@datatable');

@@ -26,8 +26,7 @@ class EventController extends Controller
     {
         $events = DB::table('events')
         ->select(['events.id','events.tanggal', 'users.username', 'events.event'])
-        ->join('projects', 'projects.id', '=', 'events.project_id')
-        ->join('users', 'users.id', '=', 'projects.user_id')
+        ->join('users', 'users.id', '=', 'events.user_id')
         ->orderby('events.id');
 
         return Datatables::of($events)
@@ -36,10 +35,10 @@ class EventController extends Controller
 
             $html = '<div class="text-center btn-group btn-group-justified">';
             if (in_array(122, session()->get('allowed_menus'))) {
-                $html .= '<a href="karyawan-tetap/'.$event->id.'/edit"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a>';
+                $html .= '<a href="events/'.$event->id.'/edit"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a>';
             }
             if (in_array(123, session()->get('allowed_menus'))) {
-                $html .= '<a href="javascript:;" onclick="karyawanHarianModule.confirmDelete(event, \''.$event->id.'\');"><button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>';
+                $html .= '<a href="event/'.$event->id.'"><button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>';
             }
             $html .= '</div>';
 
@@ -49,11 +48,14 @@ class EventController extends Controller
         ->make(true);
     }
 
+    public function show($id)
+    {
+    }
+
     public function create()
     {
         $data['usernames'] = DB::table('users')
-        ->select(['projects.id', 'users.username'])
-        ->join('projects', 'projects.user_id', '=', 'users.id')
+        ->select(['users.id','users.username'])
         ->get();
 
         return view('event.create', $data);
@@ -64,8 +66,8 @@ class EventController extends Controller
         $a = $request->input('tanggal');
         $event = new Event();
         //$event->tanggal = $a->format('Y-m-d');
-        $event->tanggal = Carbon::createFromFormat('d-m-Y', $a)->format('Y-m-d');
-        $event->project_id = $request->input('username');
+        $event->tanggal = Carbon::createFromFormat('m-d-Y', $a)->format('Y-m-d');
+        $event->user_id = $request->input('username');
         $event->event = $request->input('event');
         $event->save();
 
@@ -74,5 +76,55 @@ class EventController extends Controller
 
         return redirect('events');
         
+    }
+
+    public function edit(Event $e)
+    {
+        if (in_array(142, session()->get('allowed_menus'))) {
+            //$e = Event::findOrFail($e->id);
+             
+            $data['usernames'] = DB::table('users')
+            ->select(['users.id','users.username'])
+            ->get();
+
+            return view('event.edit', compact('e'), $data);
+        } else {
+            //
+        }
+    }
+
+    public function update(Event $event, Request $request)
+    {
+        // $pt = new PackageTaken();
+
+        $event->tanggal = Carbon::createFromFormat('d-m-Y', $a)->format('Y-m-d');
+        $event->user_id = $request->input('username');
+        $event->event = $request->input('event');
+
+        // $pt->save();
+        // DB::commit();
+
+                Event::findOrFail($event->id)->update([
+                    'tanggal' => $tanggal,
+                    'user_id' => $user_id,
+                    'event' => $event
+                ]);
+
+                DB::commit();
+
+                return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $events = Event::findOrFail($id);
+        $events->delete();
+        return redirect()->back();
     }
 }

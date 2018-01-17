@@ -53,7 +53,7 @@ class User extends Model implements
  
         if ($user) {
                 $user->update(['active' => 1, 'activation_code' => null]);
-                \Auth::login($user);
+                // \Auth::login($user);
                 return true;
         }
 

@@ -191,18 +191,10 @@ class PackageTakenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($user)
+    public function destroy($id)
     {
-        DB::beginTransaction();
-
-        try {
-            $user->delete();
-
-            DB::commit();
-            echo 'success';
-        } catch (\Illuminate\Database\QueryException $e) {
-            DB::rollBack();
-            echo 'Error ('.$e->errorInfo[1].'): '.$e->errorInfo[2].'.';
-        }
+        $package_takens = PackageTaken::findOrFail($id);
+        $package_takens->delete();
+         return redirect()->back();
     }
 }

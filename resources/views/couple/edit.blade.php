@@ -101,7 +101,8 @@
     </section>
     <!-- /.content -->
     
-@endsection
+
+@section('other-js')
 <script type="text/javascript">
     $(document).ready(function(){
     coupleModule.init();
@@ -126,3 +127,5 @@
      });     
 
   </script>  
+@endsection
+@endsection
