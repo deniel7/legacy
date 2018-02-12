@@ -13,12 +13,13 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
+    @foreach($banners as $item)
     <div class="item active">
-        <img src="{{asset('images/frontend/banner 005.jpg')}}">
+        <img src="{{asset('images/upload/banner/'.$item->image1) }}">
         
       </div>
       <div class="item">
-        <img src="{{asset('images/frontend/banner 001.jpg')}}">
+        <img src="{{asset('images/upload/banner/'.$item->image2) }}">
         <div class="carousel-caption">
           <!-- <h3>Chania</h3>
           <p>The atmosphere in Chania has a touch of Florence and Venice.</p> -->
@@ -26,20 +27,21 @@
       </div>
 
       <div class="item">
-        <img src="{{asset('images/frontend/banner 002.jpg')}}">
+        <img src="{{asset('images/upload/banner/'.$item->image3) }}">
         
       </div>
     
       <div class="item">
-        <img src="{{asset('images/frontend/banner 003.jpg')}}">
+        <img src="{{asset('images/upload/banner/'.$item->image4) }}">
         
       </div>
 
       <div class="item">
-        <img src="{{asset('images/frontend/banner 004.jpg')}}">
+        <img src="{{asset('images/upload/banner/'.$item->image5) }}">
         
       </div>
       
+      @endforeach
 
       
   

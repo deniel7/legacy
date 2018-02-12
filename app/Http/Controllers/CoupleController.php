@@ -255,11 +255,17 @@ class CoupleController extends Controller
 
     public function update(Project $project, Request $request, $id)
     {
-        $pdf = $request->input('pdf');
+        $pdf = $request->file('pdf');
         $old_pdf = $request->input('old_pdf');
 
         if (!empty($pdf)) {
-            $mr = $pdf;
+            $filename = $pdf->getClientOriginalName();
+            $destinationPath = public_path('/images/upload/pdf');
+
+            unlink($destinationPath.'/'.$old_pdf);
+            
+            $proses = $request->file('pdf')->move($destinationPath, $filename);
+            $mr = $filename;
         } else {
             $mr = $old_pdf;
         }

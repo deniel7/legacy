@@ -13,7 +13,7 @@
         <!-- Main Content -->
         <div class="container-fluid">
           <div class="side-body">
-            
+            @include('flash::message')
             @yield('content')
             
           </div>
@@ -76,6 +76,17 @@
     //$('.absolute-wrapper').removeClass('slide-in');
     });
     });
+
+
+
+    $('.date').datepicker({  
+
+       format: 'mm-dd-yyyy'
+
+     });  
+
     </script>
+    <!-- Datepicker -->
+  <script src="{{ asset('bower_components/AdminLTE/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
   </body>
 </html>

@@ -46,7 +46,10 @@
 
             <div class="row">
             <h3>Wedding Summary & Rundown</h3>
-            <a href="{{ url('user-logout') }}"><button type="button" class="navbar-brand btn btn-danger btn-sm pull-right"><p>Download PDF</p></button></a>
+            <!-- {{ $dl['main_rundown'] }}
+            $destinationPath = public_path('/images/upload/pdf'); -->
+            <a target="_blank" href="{{ url('/images/upload/pdf/') }}/{{ $dl['main_rundown'] }}"><button type="button" class="navbar-brand btn btn-danger btn-sm pull-right"><p>Download PDF</p></button></a>
+             
             </div>
 
            

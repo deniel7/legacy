@@ -26,7 +26,23 @@
     Route::get('/client', 'ClientController@index');
     Route::get('client-home', 'ClientController@home');
     Route::get('wedding-data', 'ClientController@weddingData');
+    Route::post('post-wedding-data', 'ClientController@postWeddingData');
     Route::get('wedding-data-bestmen', 'ClientController@weddingDataBestmen');
+    Route::post('post-bestmen', 'ClientController@postDataBestmen');
+    Route::get('wedding-data-famcoord', 'ClientController@weddingDataFamcoord');
+    Route::post('post-famcoord', 'ClientController@postDataFamcoord');
+    Route::get('wedding-data-guest-welcoming', 'ClientController@weddingDataGuestwelcoming');
+    Route::post('post-guestwelcoming', 'ClientController@postDataGuestwelcoming');
+    Route::get('wedding-data-guestbookangpao', 'ClientController@weddingDataGuestbookAngpao');
+    Route::post('post-guestbookangpao', 'ClientController@postDataGuestbookAngpao');
+    Route::get('wedding-data-teapay', 'ClientController@weddingDataTeaPay');
+    Route::post('post-teapay', 'ClientController@postDataTeaPay');
+    Route::get('wedding-data-corsagelist', 'ClientController@weddingDataCorsageList');
+    Route::post('post-corsagelist', 'ClientController@postDataCorsageList');
+    Route::get('wedding-data-familyphotolist', 'ClientController@weddingDataFamilyPhotoList');
+    Route::post('post-familyphotolist', 'ClientController@postDataFamilyPhotoList');
+    Route::get('wedding-data-friendphotolist', 'ClientController@weddingDataFriendPhotoList');
+    Route::post('post-friendphotolist', 'ClientController@postDataFriendPhotoList');
     Route::get('/about', 'FrontController@getAbout');
     Route::get('/contact', 'FrontController@getContact');
     Route::post('post-contact', 'FrontController@doSend');
@@ -70,19 +86,8 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 
 Route::group(['middleware' => 'auth'], function () {
 
-
-
-    
-
-
-
-
-
-
-
-
-
-
+    Route::resource('banners', 'BannerController');
+    Route::controller('banners', 'BannerController');
 
     //BACKEND ROUTES
     Route::resource('users', 'UserController');

@@ -58,8 +58,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary {
     color: white;
-    background-color: #fed136;
-    border-color: #fed136;
+    background-color: #d5c0b4;
+    border-color: #d5c0b4;
     font-family: "Times New Roman", Times, serif;
     text-transform: uppercase;
     font-weight: 700;
@@ -720,7 +720,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 
 ::-moz-selection {
     text-shadow: none;
-    background: #fed136;
+    background: #d5c0b4;
     border: none;
     position: fixed;
     width: 300px;

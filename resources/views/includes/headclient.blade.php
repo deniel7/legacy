@@ -9,10 +9,13 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('front/agency/css/bootstrap.min.css')}}" rel="stylesheet">
 
+    <!-- jQuery 2.1.4 -->
+  <script src="{{ asset('bower_components/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
     
     <!-- Theme CSS -->
     <link href="{{asset('front/agency/css/agencyclient.css')}}" rel="stylesheet">
-    
+    <!-- Datepicker -->
+  <link rel="stylesheet" href="{{ asset('bower_components/AdminLTE/plugins/datepicker/datepicker3.css') }}">
     <style>
 
   .carousel-inner > .item > img,

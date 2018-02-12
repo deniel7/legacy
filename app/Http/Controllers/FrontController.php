@@ -24,7 +24,7 @@ class FrontController extends Controller
         order by id DESC
         LIMIT 6
         ");
-
+        $data['banners'] = DB::table('banners')->get();
          $response     = Instagram::users()->getMedia('self');
         $instagrams   =  json_encode($response->get());
 
@@ -62,6 +62,9 @@ class FrontController extends Controller
         order by id DESC
         LIMIT 6
         ");
+
+        $data['banners'] = DB::table('banners')->get();
+
         return view('pages.about', $data);
     }
 
