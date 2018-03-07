@@ -39,27 +39,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 info">
-                    <h5><u>GET IN TOUCH</u></h5>
+                    <h5>GET IN TOUCH</h5>
                     <ul>
-                        <li>Phone +62 878 2330 3095</li>
+                        <li><img id="logo-main" src="{{asset('front/agency/img/call.png')}}" height="35px"> +62 878 2330 3095</li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +62 856 240 10 229 (Hotline)</li>
-                        <li>Email</li>
-                        <li>support@legacyweddingorganizer.com</li>
+                        <li><img id="logo-main" src="{{asset('front/agency/img/email.png')}}" height="35px">&nbsp;&nbsp;<a href="{{ url('/contact') }}">support@legacyweddingorganizer.com</a></li>
+                        <li><br/>
+                        <a href="https://www.facebook.com/legacyweddingorganizer/" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/fb.png')}}" height="35px"></a>&nbsp;&nbsp
+                        <a href="https://www.instagram.com/legacy_organizer/" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/ig.png')}}" height="35px"></a>&nbsp;&nbsp
+                        <a href="https://web.whatsapp.com/" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/wa.png')}}" height="35px"></a>&nbsp;&nbsp
+                        <a href="https://www.youtube.com/channel/UCFr3oEiBKeeNdZ3fSdNZSzw?view_as=subscriber" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/youtube.png')}}" height="35px"></a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-4 info">
-                    <h5><u>PROJECT</u></h5>
+                    <h5>PROJECT</h5>
                     <ul>
                         @foreach($projects as $project)
-                        <li>{{ $project->pengantin_pria }} & {{ $project->pengantin_wanita }}</li>
+                        <li><a href="{{ url('/detail/'.$project->id) }}">{{ $project->pengantin_pria }} & {{ $project->pengantin_wanita }}</a></li>
                         @endforeach
                     </ul>
-                    <a href="{{ url('/project') }}">more...</a>
+                    <a href="{{ url('/project') }}"><i>READ MORE</i></a>
                 </div>
                 <div class="col-sm-4 info">
-                    <h5><u>ABOUT US</u></h5>
-                    <p> <b>Hello, thank you for reaching out for us ! <br/> We are Wedding Planner and Organizer </b><br/> We are timekeeper, counselor, personal shopper and designer rolled into one. <br/> <b>Your unforgetable moment</b></p>
-                    <a href="{{ url('/about') }}">more...</a>
+                    <h5>ABOUT US</h5>
+                    <p> We are specialized to create elegant also sophisticated unforgetable moment. Professional friendly staff will be delighted to discuss requirements and planning in great details & personalized.</p>
+                    <a href="{{ url('/about') }}"><i>READ MORE</i></a>
                 </div>
             </div>
         </div>

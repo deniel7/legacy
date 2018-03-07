@@ -23,60 +23,41 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
+                    <table id="groom_name" width="100%">
                     <?php
                     
                     if (!empty($weddings->groom_name)) {
                     $gr_name = json_decode($weddings->groom_name);
                     for ($i = 0; $i < count($gr_name); ++$i) {
-                    echo "<input type='text' class='form-control' name='groom_name[]' value='".$gr_name[$i]."'>";
+                    echo "<tr><td><input type='text' class='form-control' name='groom_name[]' value='".$gr_name[$i]."'></td></tr>";
                     }
                     } else {
                     ?>
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
-                    <input type="text" class="form-control" name="groom_name[]">
+                    <tr><td><input type="text" class="form-control" name="groom_name[]"></td></tr>
                     <?php                                                                                                                                                                                                                                                                                                                         } ?>
-                    
+                    </table>
+            <p class="btn btn-default btn-sm pull-right" onclick="myFunction('groom_name')">
+                  <span class="glyphicon glyphicon-plus"></span> 
+                </p>
                 </div>
                 <div class="col-md-6">
+                    <table id="bride_name" width="100%">
                     <?php
                     
                     if (!empty($weddings->bride_name)) {
                     $bride_name = json_decode($weddings->bride_name);
                     for ($i = 0; $i < count($bride_name); ++$i) {
-                    echo "<input type='text' class='form-control' name='bride_name[]' value='".$bride_name[$i]."'>";
+                    echo "<tr><td><input type='text' class='form-control' name='bride_name[]' value='".$bride_name[$i]."'></td></tr>";
                     }
                     } else {
                     ?>
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <input type="text" class="form-control" name="bride_name[]">
-                    <?php                                                                                                                                                                                                                                                                                                                         }?>
+                    <tr><td><input type="text" class="form-control" name="bride_name[]"></td></tr>
                     
+                    <?php                                                                                                                                                                                                                                                                                                                         }?>
+                    </table>
+                     <p class="btn btn-default btn-sm pull-right" onclick="myFunction('bride_name')">
+                  <span class="glyphicon glyphicon-plus"></span> 
+                </p>
                 </div>
             </div>
             
@@ -97,3 +78,13 @@
 
 </div>
 @stop
+<script>
+function myFunction(id) {
+    var table = document.getElementById(id);
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    
+    cell1.innerHTML = "<input type='text' class='form-control' name='"+id+"[]' />";
+    
+}
+</script>

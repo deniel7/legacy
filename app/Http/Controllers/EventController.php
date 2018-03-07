@@ -78,14 +78,21 @@ class EventController extends Controller
         
     }
 
-    public function edit(Event $e)
+    public function edit(Event $e, $id)
     {
         if (in_array(142, session()->get('allowed_menus'))) {
             //$e = Event::findOrFail($e->id);
-             
+
+
+           // $data['status_users'] = User::select('active')->groupBy('active')->get();
+
+
+            $data['events'] = Event::find($id);
             $data['usernames'] = DB::table('users')
             ->select(['users.id','users.username'])
             ->get();
+
+
 
             return view('event.edit', compact('e'), $data);
         } else {

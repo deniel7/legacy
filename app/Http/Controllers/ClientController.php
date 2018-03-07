@@ -194,6 +194,8 @@ class ClientController extends Controller
     {
         $user_id =  Auth::user()->get()->id;
 
+        $c = "[" . implode(",", $request->input('groom_siblings')) . "]";
+
 
         WeddingData::updateOrCreate(['user_id' => $user_id], [
                         'user_id' => $request->input('user_id'),

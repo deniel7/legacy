@@ -22,15 +22,11 @@
     <title>Legacy Wedding Organizer</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('front/agency/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('front/agency/css/bootstrap.css')}}" rel="stylesheet">
 
     
     <!-- Theme CSS -->
     <link href="{{asset('front/agency/css/agency.css')}}" rel="stylesheet">
-    
-
-
-
     
 <!--     Membuat scrollable sidebar Client  -->
     <script type="text/javascript">
@@ -167,6 +163,9 @@
 .white {
   background-color: #ffffff !important;
 }
+ .centered{
+    margin: 0 auto;
+}
 .red {
   background-color: #db2027;
   color: #ffffff;
@@ -255,7 +254,7 @@
 }
 
 
-  </style>
+</style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

@@ -191,6 +191,8 @@
         </div>
         <div class="row">
         <div class="col-md-6">
+            <table id="groom_siblings" width="100%">
+            
             <?php
                 
             if (!empty($weddings->groom_siblings)) {
@@ -198,20 +200,25 @@
                 for ($i = 0; $i < count($c); ++$i) {
                     //echo "- ".$c[$i]."<br/>";
 
-                    echo "<input type='text' class='form-control' name='groom_siblings[]' value=".$c[$i].">";
+                    echo "<tr><td><input type='text' class='form-control' name='groom_siblings[]' value=".$c[$i]."></td></tr>";
                 }
             } else {
             ?>
             
             
-            <input type="text" class="form-control" name="groom_siblings[]" />
-            <input type="text" class="form-control" name="groom_siblings[]" />
-            <input type="text" class="form-control" name="groom_siblings[]" />
-            <input type="text" class="form-control" name="groom_siblings[]" />
+            <tr><td><input type="text" class="form-control" name="groom_siblings[]" /></td></tr>
             
-            <?php  } ?>                                                                                       
+            
+            <?php  } ?>
+            
+            </table>                                                                                     
+                
+                <p class="btn btn-default btn-sm pull-right" onclick="myFunction('groom_siblings')">
+                  <span class="glyphicon glyphicon-plus"></span> 
+                </p>
         </div>
         <div class="col-md-6">
+            <table id="groom_siblings_number" width="100%">
             <?php
                 
             if (!empty($weddings->groom_sibling_num)) {
@@ -219,16 +226,17 @@
                 for ($i = 0; $i < count($gs_num); ++$i) {
                     //echo "- ".$c[$i]."<br/>";
 
-                    echo "<input type='text' class='form-control' name='groom_siblings_number[]' value=".$gs_num[$i].">";
+                    echo "<tr><td><input type='text' class='form-control' name='groom_siblings_number[]' value=".$gs_num[$i]."></td></tr>";
                 }
             } else {
             ?>
-            <input type="text" class="form-control" name="groom_siblings_number[]" />
-            <input type="text" class="form-control" name="groom_siblings_number[]" />
-            <input type="text" class="form-control" name="groom_siblings_number[]" />
-            <input type="text" class="form-control" name="groom_siblings_number[]" />  
-
+            <tr><td><input type="text" class="form-control" name="groom_siblings_number[]" /></td></tr>
             <?php } ?>  
+            </table>
+
+             <p class="btn btn-default btn-sm pull-right" onclick="myFunction('groom_siblings_number')">
+                  <span class="glyphicon glyphicon-plus"></span> 
+                </p>
         </div>
         </div>
 
@@ -244,36 +252,41 @@
         </div>
         <div class="row">
         <div class="col-md-6">
+            <table id="bride_siblings" width="100%">
             <?php
                 
             if (!empty($weddings->bride_siblings)) {
                 $bs = json_decode($weddings->bride_siblings);
                 for ($i = 0; $i < count($bs); ++$i) {
-                    echo "<input type='text' class='form-control' name='bride_siblings[]' value=".$bs[$i].">";
+                    echo "<tr><td><input type='text' class='form-control' name='bride_siblings[]' value=".$bs[$i]."></td></tr>";
                 }
             } else {
             ?>
-            <input type="text" class="form-control" name="bride_siblings[]" />
-            <input type="text" class="form-control" name="bride_siblings[]" />
-            <input type="text" class="form-control" name="bride_siblings[]" />
-            <input type="text" class="form-control" name="bride_siblings[]" />    
+            <tr><td><input type="text" class="form-control" name="bride_siblings[]" /></td></tr>   
             <?php } ?>
+            </table>
+
+            <p class="btn btn-default btn-sm pull-right" onclick="myFunction('bride_siblings')">
+                  <span class="glyphicon glyphicon-plus"></span> 
+                </p>
         </div>
         <div class="col-md-6">
+            <table id="bride_siblings_number" width="100%">
             <?php
                 
             if (!empty($weddings->bride_sibling_num)) {
                 $bsn = json_decode($weddings->bride_sibling_num);
                 for ($i = 0; $i < count($bsn); ++$i) {
-                    echo "<input type='text' class='form-control' name='bride_siblings_number[]' value=".$bsn[$i].">";
+                    echo "<tr><td><input type='text' class='form-control' name='bride_siblings_number[]' value=".$bsn[$i]."></td></tr>";
                 }
             } else {
             ?>
-            <input type="text" class="form-control" name="bride_siblings_number[]" />
-            <input type="text" class="form-control" name="bride_siblings_number[]" />
-            <input type="text" class="form-control" name="bride_siblings_number[]" />
-            <input type="text" class="form-control" name="bride_siblings_number[]" />
+            <tr><td><input type="text" class="form-control" name="bride_siblings_number[]" /></td></tr>
             <?php } ?>
+            </table>
+            <p class="btn btn-default btn-sm pull-right" onclick="myFunction('bride_siblings_number')">
+                  <span class="glyphicon glyphicon-plus"></span> 
+                </p>
         </div>
         </div>
 
@@ -310,3 +323,16 @@
     
 
 @stop
+
+<script>
+
+
+function myFunction(id) {
+    var table = document.getElementById(id);
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    
+    cell1.innerHTML = "<input type='text' class='form-control' name='"+id+"[]' />";
+    
+}
+</script>

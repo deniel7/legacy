@@ -6,9 +6,9 @@
 </head>
 <body id="page-top" class="index">
     <!-- Navigation -->
-
+    <header>
     @include('includes.navbar')
-    
+    </header>
         
     
 

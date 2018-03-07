@@ -48,26 +48,32 @@
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Tanggal</label>
                   <div class="col-sm-10">
-                    <input type="text" class="date form-control" name="tanggal" value="{{ $e->tanggal }}">
+                    <input type="text" class="date form-control" name="tanggal" value="{{ date('d-m-Y', strtotime($events->tanggal)) }}">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Username</label>
                   <div class="col-sm-10">
+
                     <select name="username" id="username" class="form-control selectpicker" title="-- Choose Username --">
                       @foreach($usernames as $item)
-                        <option value="{{ $item->id }}" {{ $item->id == (old('user_id') !== null ? old('user_id') : $e->user_id) ? 'selected' : '' }} >{{ $item->username }}</option>
+                        
+                        <option value="{{ $item->id }}" {{ $item->id == (old('user_id') !== null ? old('user_id') : $item->id) ? 'selected' : '' }} >{{ $item->username }}</option>
+                        
+                        <option value="{{ $item }}" @if($user->type=== $item) selected='selected' @endif> {{ strtoupper($item) }}
+                        </option>
+                        
                       @endforeach
-                      
                     </select>
+
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Event</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="event" id="event" placeholder="" value="{{ $e->event }}">
+                    <input type="text" class="form-control" name="event" id="event" placeholder="" value="{{ $events->event }}">
                   </div>
                 </div>
                                  

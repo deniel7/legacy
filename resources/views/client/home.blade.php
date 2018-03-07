@@ -2,7 +2,7 @@
 @section('content')
 <!-- Portfolio Grid Section -->
 <div class="row">
-    <div class="col-xs-8">
+    <div class="col-xs-12">
         <div class="row">
         <h4>Welcome {{ Auth::user()->get()->username }}</h4>
         <hr/>
@@ -13,8 +13,7 @@
             
             <li>
                 <time datetime="2014-07-31 1600">
-                <span class="day" style="word-wrap: break-word"><?php echo date('d', strtotime($event->tanggal)); ?></span>
-                <span class="month" style="word-wrap: break-word"><?php echo date('M', strtotime($event->tanggal)); ?></span>
+                <span class="day" style="word-wrap: break-word"><?php echo date('d', strtotime($event->tanggal)); ?><?php echo date('M', strtotime($event->tanggal)); ?> <?php echo date('Y', strtotime($event->tanggal)); ?></span>
                 
                 
                 </time>

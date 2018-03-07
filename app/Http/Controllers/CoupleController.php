@@ -262,7 +262,9 @@ class CoupleController extends Controller
             $filename = $pdf->getClientOriginalName();
             $destinationPath = public_path('/images/upload/pdf');
 
-            unlink($destinationPath.'/'.$old_pdf);
+            if ($old_pdf) {
+                unlink($destinationPath.'/'.$old_pdf);
+            }
             
             $proses = $request->file('pdf')->move($destinationPath, $filename);
             $mr = $filename;

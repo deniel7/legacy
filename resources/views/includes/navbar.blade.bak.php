@@ -1,47 +1,72 @@
-<div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" style="margin-top:-10px" href="#page-top"><img src="{{asset('front/agency/img/legacy.jpg')}}"/></a>
-            </div>
+<nav class="navbar navbar-default container-fluid">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="pull-left " style="margin-top:60px">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#left">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+      <div class="navbar-inner visible-xs">
+        <div class="nav-center">
+         <a href="/" ><span class="App_logo_plus"></span><span class="App_logo"><img src="{{asset('front/agency/img/logo_mbl.png')}}"/></span></a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="yo">
+
+          <div class="pull-left ">
+            <button type="button" class="navbar-toggle-always collapsed" data-toggle="collapse" data-target="#left" aria-expanded="false" aria-controls="navbar">
+              <span class="icon-bar-always"></span>
+              <span class="icon-bar-always"></span>
+              <span class="icon-bar-always"></span>
+            </button>
+          </div>
+
+      <div class="navbar-inner hidden-xs">
+        <div class="nav-center"><br/>
+         <a href="/" ><span class="App_logo_plus"></span><span class="App_logo"><img src="{{asset('front/agency/img/logo.png')}}"/></span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="collapse" id="left" style="position:absolute;z-index:100;margin-top:-98px">
+      <ul class="nav">
+          
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    @if (Auth::user()->get())
                     
-
-                    @else
                     <li>
-                        <a class="page-scroll" href="{{ url('/') }}">Home</a>
+                        <a href="{{ url('/') }}">Home</a>
                     </li>
                     <!-- <li>
-                        <a class="page-scroll" href="#portfolio">Special Day</a>
+                        <a href="#portfolio">Special Day</a>
                     </li> -->
                     <li>
-                        <a class="page-scroll" href="{{ url('/project') }}">Project</a>
+                        <a href="{{ url('/project') }}">Project</a>
                     </li>
                     
                     <li>
-                        <a class="page-scroll" href="{{ url('/client') }}">Client</a>
+                        <a href="{{ url('/client') }}">Client</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ url('/about') }}">About</a>
+                        <a href="{{ url('/about') }}">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{ url('/contact') }}">Contact</a>
+                        <a href="{{ url('/contact') }}">Contact</a>
                     </li>
-                    @endif
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+                   
+               
+      </ul>
+    </div>
 
-
-
+  </div>
+</nav>
