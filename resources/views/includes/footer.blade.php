@@ -54,7 +54,7 @@
                 </div>
                 <div class="col-sm-4 info">
                     <h5>PROJECT</h5>
-                    <ul>
+                    <ul style="text-transform:uppercase">
                         @foreach($projects as $project)
                         <li><a href="{{ url('/detail/'.$project->id) }}">{{ $project->pengantin_pria }} & {{ $project->pengantin_wanita }}</a></li>
                         @endforeach

@@ -26,10 +26,9 @@ class PackageController extends Controller
 
             $html = '<div class="text-center btn-group btn-group-justified">';
 
-            if (in_array(122, session()->get('allowed_menus'))) {
-                $html .= '<a href="packages/'.$user->id.'/edit"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a>';
-            }
-
+                 $html .= '<a href="packages/'.$user->id.'/edit"><button type="button" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></button></a>';
+            
+            $html .= '<a href="packages-del/'.$user->id.'"><button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>';
             $html .= '</div>';
 
             return $html;
@@ -111,7 +110,11 @@ class PackageController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $data['packages'] = Package::find($id);
+        
+
+        return view('package.edit', $data);
     }
 
     /**
@@ -121,9 +124,15 @@ class PackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Package $package, Request $request, $id)
     {
-        //
+        $package = Package::find($id);
+
+        $package->nama = $request->input('nama');
+        $package->save();
+        DB::commit();
+
+        return redirect('packages');
     }
 
     /**
@@ -134,6 +143,8 @@ class PackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $packages = Package::findOrFail($id);
+        $packages->delete();
+        return redirect()->back();
     }
 }

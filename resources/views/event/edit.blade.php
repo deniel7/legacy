@@ -37,18 +37,18 @@
             <!-- /.box-header -->
             
             <!-- form start -->
-            <form class="form-horizontal" id="frmData" method="post" action="{{ url('/events') }}/{{ $e->id }}" autocomplete="off">
-             <h1>{{ $e->id }}</h1>
+            <form class="form-horizontal" id="frmData" method="post" action="{{ url('/events') }}/{{ $event->id }}" autocomplete="off">
+    
               <input name="_method" type="hidden" value="put">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <input type="hidden" class="form-control" name="id" id="quotes" value="{{ $e->id }}" >
+              <input type="hidden" class="form-control" name="id" id="quotes" value="{{ $event->id }}" >
               
               <div class="box-body">
                 
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Tanggal</label>
                   <div class="col-sm-10">
-                    <input type="text" class="date form-control" name="tanggal" value="{{ date('d-m-Y', strtotime($events->tanggal)) }}">
+                    <input type="text" class="date form-control" name="tanggal" value="{{ date('d-m-Y', strtotime($event->tanggal)) }}">
                   </div>
                 </div>
 
@@ -59,10 +59,9 @@
                     <select name="username" id="username" class="form-control selectpicker" title="-- Choose Username --">
                       @foreach($usernames as $item)
                         
-                        <option value="{{ $item->id }}" {{ $item->id == (old('user_id') !== null ? old('user_id') : $item->id) ? 'selected' : '' }} >{{ $item->username }}</option>
                         
-                        <option value="{{ $item }}" @if($user->type=== $item) selected='selected' @endif> {{ strtoupper($item) }}
-                        </option>
+                        
+                        <option value="{{ $item->id }}" {{ $item->id == (old('user_id') !== null ? old('user_id') : $event->user_id) ? 'selected' : '' }} >{{ $item->username }}</option>
                         
                       @endforeach
                     </select>
@@ -73,7 +72,7 @@
                 <div class="form-group">
                   <label for="name" class="col-sm-2 control-label">Event</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="event" id="event" placeholder="" value="{{ $events->event }}">
+                    <input type="text" class="form-control" name="event" id="event" placeholder="" value="{{ $event->event }}">
                   </div>
                 </div>
                                  
@@ -82,7 +81,7 @@
               
               <div class="box-footer">
                 <div class="btn-group pull-right">
-                  <a href="{{ url('/vendors') }}" class="btn btn-warning"><i class="fa fa-chevron-left"></i> Back</a>
+                  <a href="{{ url('/events') }}" class="btn btn-warning"><i class="fa fa-chevron-left"></i> Back</a>
                   <button type="submit" class="btn btn-primary" id="btnSubmit" style="margin-left: 5px;"><i class="fa fa-check"></i> Save</button>
                 </div>
               </div>

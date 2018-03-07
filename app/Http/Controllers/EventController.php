@@ -78,48 +78,49 @@ class EventController extends Controller
         
     }
 
-    public function edit(Event $e, $id)
+    public function edit($id)
     {
-        if (in_array(142, session()->get('allowed_menus'))) {
+       // if (in_array(142, session()->get('allowed_menus'))) {
             //$e = Event::findOrFail($e->id);
 
 
            // $data['status_users'] = User::select('active')->groupBy('active')->get();
 
 
-            $data['events'] = Event::find($id);
-            $data['usernames'] = DB::table('users')
-            ->select(['users.id','users.username'])
-            ->get();
+            //$data['events'] = Event::find($id);
+            // $data['usernames'] = DB::table('users')
+            // ->select(['users.id','users.username'])
+            // ->get();
 
+            
 
+            //return view('karyawan/edit', compact('karyawan'), $data);
+            $data['event'] = Event::find($id);
+            $data['usernames'] = User::select('id', 'username')->orderBy('id')->get();
 
-            return view('event.edit', compact('e'), $data);
-        } else {
+            return view('event.edit', $data);
+        //} else {
             //
-        }
+        //}
     }
 
-    public function update(Event $event, Request $request)
+    public function update(Event $event, Request $request, $id)
     {
-        // $pt = new PackageTaken();
+        $a = $request->input('tanggal');
+        $tanggal = Carbon::createFromFormat('d-m-Y', $a)->format('Y-m-d');
+        $user_id = $request->input('username');
+        $event = $request->input('event');
 
-        $event->tanggal = Carbon::createFromFormat('d-m-Y', $a)->format('Y-m-d');
-        $event->user_id = $request->input('username');
-        $event->event = $request->input('event');
 
-        // $pt->save();
-        // DB::commit();
+        Event::findOrFail($id)->update([
+            'tanggal' => $tanggal,
+            'user_id' => $user_id,
+            'event' => $event
+        ]);
 
-                Event::findOrFail($event->id)->update([
-                    'tanggal' => $tanggal,
-                    'user_id' => $user_id,
-                    'event' => $event
-                ]);
+        DB::commit();
 
-                DB::commit();
-
-                return redirect()->back();
+        return redirect()->back();
     }
 
     /**

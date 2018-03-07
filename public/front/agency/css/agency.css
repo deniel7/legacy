@@ -715,12 +715,9 @@ body {
     background-image: url('../img/footer_topright.png');
     background-repeat:no-repeat;
     background-position:right top;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
-#myFooter .email {
-    font-size: 13px;
-}
 
 #myFooter .row {
     margin-bottom: 60px;
@@ -761,7 +758,6 @@ body {
 #myFooter a {
     color: #000;
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 #myFooter a:hover, #myFooter a:focus {

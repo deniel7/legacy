@@ -51,10 +51,11 @@
     Route::resource('project', 'ProjectController');
     Route::controller('project', 'ProjectController');
     
+    
     Route::resource('/packages', 'PackageController');
     Route::controller('packages', 'PackageController');
+    Route::get('packages-del/{id}', 'PackageController@destroy');
     Route::post('datatable/packages', 'PackageController@datatable');
-
 
 Route::get('register', [
    'as' => 'register', 'uses' => 'ClientController@register'
