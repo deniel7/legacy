@@ -1,11 +1,11 @@
 @extends('layouts.detail')
 @section('content')
 <!-- Portfolio Grid Section -->
-<section id="portfolio" class="bg-light-gray">
+<section id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Projects</h2>
+                    <h2 class="section-heading">Legacy Projects</h2>
                     
                 </div>
             </div>

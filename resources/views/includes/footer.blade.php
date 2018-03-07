@@ -43,7 +43,7 @@
                     <ul>
                         <li><img id="logo-main" src="{{asset('front/agency/img/call.png')}}" height="35px"> +62 878 2330 3095</li>
                         <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +62 856 240 10 229 (Hotline)</li>
-                        <li><img id="logo-main" src="{{asset('front/agency/img/email.png')}}" height="35px">&nbsp;&nbsp;<a href="{{ url('/contact') }}">support@legacyweddingorganizer.com</a></li>
+                        <li class="email"><img id="logo-main" src="{{asset('front/agency/img/email.png')}}" height="35px">&nbsp;&nbsp;<a href="{{ url('/contact') }}">support@legacyweddingorganizer.com</a></li>
                         <li><br/>
                         <a href="https://www.facebook.com/legacyweddingorganizer/" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/fb.png')}}" height="35px"></a>&nbsp;&nbsp
                         <a href="https://www.instagram.com/legacy_organizer/" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/ig.png')}}" height="35px"></a>&nbsp;&nbsp
@@ -63,8 +63,11 @@
                 </div>
                 <div class="col-sm-4 info">
                     <h5>ABOUT US</h5>
-                    <p> We are specialized to create elegant also sophisticated unforgetable moment. Professional friendly staff will be delighted to discuss requirements and planning in great details & personalized.</p>
+                    <ul>
+                    <li> We are specialized to create elegant also sophisticated unforgetable moment. Professional friendly staff will be delighted to discuss requirements and planning in great details & personalized.</li>
+                    </ul>
                     <a href="{{ url('/about') }}"><i>READ MORE</i></a>
+                    
                 </div>
             </div>
         </div>

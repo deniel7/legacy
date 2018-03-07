@@ -147,7 +147,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id." 
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id = 
         ".$user_id);
@@ -173,7 +173,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id." 
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id = 
         ".$user_id);
@@ -246,7 +246,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id." 
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id = 
         ".$user_id);
@@ -290,7 +290,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id."
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id =
         ".$user_id);
@@ -339,7 +339,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id."
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id =
         ".$user_id);
@@ -385,7 +385,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id."
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id =
         ".$user_id);
@@ -431,7 +431,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id."
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id =
         ".$user_id);
@@ -477,7 +477,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id."
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id =
         ".$user_id);
@@ -523,7 +523,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id."
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id =
         ".$user_id);
@@ -569,7 +569,7 @@ class ClientController extends Controller
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id."
-        ");
+        order by nama ASC");
 
         $data['projects'] = DB::select("select * from projects where user_id =
         ".$user_id);

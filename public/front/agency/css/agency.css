@@ -168,7 +168,7 @@ section h4.section-subheading {
 
 @media (min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 50px 0;
     }
 
 }
@@ -715,6 +715,11 @@ body {
     background-image: url('../img/footer_topright.png');
     background-repeat:no-repeat;
     background-position:right top;
+    text-transform: uppercase;
+}
+
+#myFooter .email {
+    font-size: 13px;
 }
 
 #myFooter .row {
@@ -756,6 +761,7 @@ body {
 #myFooter a {
     color: #000;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 #myFooter a:hover, #myFooter a:focus {

@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      <img id="logo-main" src="{{asset('front/agency/img/logo.png')}}" alt="Legacy Wedding Organizer">
+      <img id="logo-main" src="{{asset('front/agency/img/logo.png')}}" alt="Legacy Wedding Organizer"><br/><br/>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
