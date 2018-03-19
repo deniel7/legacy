@@ -19,6 +19,7 @@ use App\CorsageList;
 use App\FamilyPhotoList;
 use App\FriendPhotoList;
 use App\Package;
+use App\PackageTaken;
 use App\Event;
 use Auth;
 use DB;
@@ -148,6 +149,7 @@ class ClientController extends Controller
         join projects pr on pr.id = pt.project_id
         where pr.user_id =".$user_id." 
         order by nama ASC");
+        
 
         $data['projects'] = DB::select("select * from projects where user_id = 
         ".$user_id);

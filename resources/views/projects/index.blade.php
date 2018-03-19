@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Legacy Projects</h2>
-                    
                 </div>
             </div>
+            <br/>
             <div class="row">
                 @foreach($projects as $project)
                 <div class="col-md-4 col-sm-6 portfolio-item">

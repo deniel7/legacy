@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Package;
+use App\PackageTaken;
 use DB;
 use Datatables;
 use Carbon\Carbon;
@@ -88,7 +89,7 @@ class PackageController extends Controller
         $data['packages'] = DB::select("select p.id, p.nama, pt.updated_at from package_takens pt 
         join packages p on pt.package_id = p.id
         join projects pr on pr.id = pt.project_id
-        where pr.user_id =".$user_id."
+        where pr.user_id =".$user_id." order by nama ASC
         ");
 
         
@@ -98,6 +99,31 @@ class PackageController extends Controller
         join vendors v on pt.vendor_id = v.id
         where pt.package_id =".$id.
         " and pj.user_id=".$user_id);
+
+        //DB::connection()->enableQueryLog();
+
+        // $package_name = DB::select("select nama from packages 
+        // where id =".request()->segment(2)
+        // )->first();
+
+
+        $package_name = DB::table('packages')
+        ->where('id', '=', request()->segment(2))
+        ->first();
+
+        $data['packages_next'] = PackageTaken::select(['packages.id','packages.nama'])
+        ->join('packages', 'packages.id', '=', 'package_takens.package_id')
+        ->join('projects', 'projects.id', '=', 'package_takens.project_id')
+        ->where('projects.user_id', '=', $user_id)
+        ->where('packages.nama','>', $package_name->nama)
+        ->orderBy('packages.nama')
+        ->skip(0)->take(1)
+        ->get();
+
+         // $queries = DB::getQueryLog();
+
+         // dd($queries);
+
 
         return view('package.show', $data);
     }
