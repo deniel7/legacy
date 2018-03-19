@@ -120,9 +120,14 @@ class PackageController extends Controller
         ->skip(0)->take(1)
         ->get();
 
-         // $queries = DB::getQueryLog();
-
-         // dd($queries);
+        $data['packages_prev'] = PackageTaken::select(['packages.id','packages.nama'])
+        ->join('packages', 'packages.id', '=', 'package_takens.package_id')
+        ->join('projects', 'projects.id', '=', 'package_takens.project_id')
+        ->where('projects.user_id', '=', $user_id)
+        ->where('packages.nama','<', $package_name->nama)
+        ->orderBy('packages.nama', 'desc')
+        ->skip(0)->take(1)
+        ->get();
 
 
         return view('package.show', $data);
