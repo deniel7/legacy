@@ -50,6 +50,9 @@
                         <a href="https://web.whatsapp.com/" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/wa.png')}}" height="35px"></a>&nbsp;&nbsp
                         <a href="https://www.youtube.com/channel/UCFr3oEiBKeeNdZ3fSdNZSzw?view_as=subscriber" target="_blank"><img id="logo-main" src="{{asset('front/agency/img/youtube.png')}}" height="35px"></a>
                         </li>
+                        <li><br/>
+                            <a href="https://www.bridestory.com/legacy-organizer" title="Legacy Organizer" target="_blank" rel="dofollow"><img alt="Legacy Organizer" width="205" height="36" src="https://business.bridestory.com/assets/images/badges/rectangle/big-blackpink.png" /></a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-4 info">
@@ -78,6 +81,8 @@
                     <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
                     <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
                     <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                    
                 </div>
+                
             </div>
         </div>

@@ -712,7 +712,6 @@ body {
 #myFooter {
     background-color: #d5c0b4;
     color: #000;
-    background-image: url('../img/footer_topright.png');
     background-repeat:no-repeat;
     background-position:right top;
     /* text-transform: uppercase; */
@@ -768,7 +767,6 @@ body {
     text-align: center;
     background-color: #d5c0b4;
     text-align: center;
-    background-image: url('../img/footer_bottomleft.png');
     background-repeat:no-repeat;
     background-position:left bottom;
 }

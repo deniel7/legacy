@@ -40,7 +40,7 @@ return [
         'main' => [
             'id' => 'b04b8c9273fb4090b7b54d6d90787a0e',
             'secret' => '26227b9bb93e4bf18294ddc2c4cf71ee',
-            'access_token' => '{ "access_token": "1564333816.b04b8c9.e3d6d41911674fee85f98736fd532089"}' ],
+            'access_token' => '{ "access_token": "1564333816.1677ed0.14be48fe1bcf4ed4940a1d27858a401f"}' ],
 
         'alternative' => [
             'id' => 'your-client-id',
