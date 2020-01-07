@@ -39,8 +39,8 @@ return [
 
         'main' => [
             'id' => 'b04b8c9273fb4090b7b54d6d90787a0e',
-            'secret' => '26227b9bb93e4bf18294ddc2c4cf71ee',
-            'access_token' => '{ "access_token": "1564333816.1677ed0.6cc933829191495ca525abf81e508e51"}' ],
+            'secret' => '65d1b8df62c84d9db43cb87ee691f8d7',
+            'access_token' => '{ "access_token": "1564333816.b04b8c9.e14b8c934e2646158436dc1ab537edc8"}' ],
 
         'alternative' => [
             'id' => 'your-client-id',

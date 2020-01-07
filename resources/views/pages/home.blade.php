@@ -7,7 +7,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="hl"></div>
                     <h2 class="section-heading">The Special Days</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">What greater thing is there for two human souls, than to feel that they are joined for life — to strength each other in all labor, to rest on each other in all sorrow, to minister to each other in all pain, to be with each other in silent unspeakable memories at the moment of the last parting? —George Eliot</h3>
                     <h3>
                         
                       </h3>

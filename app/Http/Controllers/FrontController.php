@@ -25,10 +25,12 @@ class FrontController extends Controller
         LIMIT 6
         ");
         $data['banners'] = DB::table('banners')->get();
-         $response     = Instagram::users()->getMedia('self');
+        $response     = Instagram::users()->getMedia('self');
         $instagrams   =  json_encode($response->get());
 
         return view('pages.home', $data, compact('instagrams'));
+        //return view('pages.home', $data);
+        
     }
 
     public function getDetail($id)
