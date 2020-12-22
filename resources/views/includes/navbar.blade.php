@@ -20,9 +20,11 @@
                         <a href="#portfolio">Special Day</a>
                     </li> -->
                     <li>
+                      <a href="{{ url('/newsletter') }}">Newsletter</a>
+                    </li>
+                    <li>
                         <a href="{{ url('/project') }}">Project</a>
                     </li>
-                    
                     <li>
                         <a href="{{ url('/client') }}">Client</a>
                     </li>

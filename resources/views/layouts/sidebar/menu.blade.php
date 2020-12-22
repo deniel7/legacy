@@ -4,7 +4,7 @@
           <!-- Optionally, you can add icons to the links -->
           <li {{ \Request::segment(1) == 'home' ? 'class=active' : '' }}><a href="{{ url('/banners') }}"><i class="fa fa-tachometer"></i> <span>Banner</span></a></li>
 
-
+          <li {{ \Request::segment(1) == 'home' ? 'class=active' : '' }}><a href="{{ url('/news-letter') }}"><i class="fa fa-tachometer"></i> <span>Newsletters</span></a></li>
 
           <li class="treeview {{ in_array(\Request::segment(1), ['users','vendors', 'packages']) ? 'active' : '' }}">
             <a href="#"><i class="fa fa-table"></i> <span>Master Data</span> <i class="fa fa-angle-left pull-right"></i></a>

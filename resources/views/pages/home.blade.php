@@ -35,7 +35,7 @@
             </div>
             <div class="row">
             <div class="col-lg-12 text-center">
-                <?php $instagram = json_decode($instagrams); ?>
+                <?php //$instagram = json_decode($instagrams); ?>
                 <div class="hl"></div>
                     <h4 class="section-subheading">Instagram Feed</h4>
             </div>
@@ -52,7 +52,7 @@
                         </div>
                        
                         
-                        <img class="img-responsive" src="{{ $instagram[$i]->images->standard_resolution->url }}" />
+                        {{-- <img class="img-responsive" src="{{ $instagram[$i]->images->standard_resolution->url }}" /> --}}
                     </div>
 
                 @endfor

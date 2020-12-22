@@ -25,12 +25,11 @@ class FrontController extends Controller
         LIMIT 6
         ");
         $data['banners'] = DB::table('banners')->get();
-        $response     = Instagram::users()->getMedia('self');
-        $instagrams   =  json_encode($response->get());
+        // $response     = Instagram::users()->getMedia('self');
+        // $instagrams   =  json_encode($response->get());
 
-        return view('pages.home', $data, compact('instagrams'));
-        //return view('pages.home', $data);
-        
+        //return view('pages.home', $data, compact('instagrams'));
+        return view('pages.home', $data);
     }
 
     public function getDetail($id)
@@ -40,7 +39,7 @@ class FrontController extends Controller
         join users u on p.user_id = u.id
         join galleries g on p.id = g.project_id
         where p.id = 
-        ".$id);
+        " . $id);
 
         $data['projects'] = DB::select("select p.id,u.pengantin_pria, u.pengantin_wanita, p.quotes, g.gbr1 from projects p 
         join users u on p.user_id = u.id
@@ -83,40 +82,39 @@ class FrontController extends Controller
 
     public function doSend(Requests $request)
     {
- 
+
         $input = $request->all();
         $password = bcrypt($request->input('password'));
         $input['password'] = $password;
         $input['activation_code'] = str_random(60) . $request->input('email');
         $register = User::create($input);
- 
+
         $data = [
-        'name' => $input['name'],
-        'code' => $input['activation_code']
+            'name' => $input['name'],
+            'code' => $input['activation_code']
         ];
 
         $this->sendEmail($data, $input);
 
         //return redirect()->route('index');
         return redirect('client');
-
     }
 
     public function post_contact(Request $request)
     {
         $rules = [
-            'name'=>'required',
-            'email'=>'required|email',
-            'phone'=>'required',
-            'message'=>'required|min:10'
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'message' => 'required|min:10'
             //'g-recaptcha-response' => 'required|captcha'
         ];
 
         $messages = [
-            'name.min'=>'Please input your name',
-            'phone.regex'=>'O campo telefone precisa estar no padrão (xx) xxxxx-xxxx!',
-            'g-recaptcha-response.required'=>'Você precisa confirmar que não é um robô!',
-            'g-recaptcha-response.captcha'=>'O ReCAPTCHA precisa ser um código CAPTCHA válido!'
+            'name.min' => 'Please input your name',
+            'phone.regex' => 'O campo telefone precisa estar no padrão (xx) xxxxx-xxxx!',
+            'g-recaptcha-response.required' => 'Você precisa confirmar que não é um robô!',
+            'g-recaptcha-response.captcha' => 'O ReCAPTCHA precisa ser um código CAPTCHA válido!'
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -142,7 +140,7 @@ class FrontController extends Controller
                 'messages' => $request->get('message')
             ),
             function ($message) {
-            
+
                 $message->from(env('MAIL_USERNAME', null));
                 $message->to(env('MAIL_USERNAME', null), 'Site Admin')->subject('Email from Contact on website Legacy Wedding Organizer');
             }
@@ -164,13 +162,13 @@ class FrontController extends Controller
         // $contact->save();
 
         // DB::commit();
-       
-        Log::info('IP from '.$request->getClientIp(). ' sent email to your site');
+
+        Log::info('IP from ' . $request->getClientIp() . ' sent email to your site');
 
         $data = [
-        'name' => $input['name']
+            'name' => $input['name']
         ];
-        
+
         $this->sendEmail($data, $input);
         //Redirect back
         Alert::success('Thanks for contact us!');
@@ -179,14 +177,12 @@ class FrontController extends Controller
 
     public function sendEmail($data, $input)
     {
- 
-         Mail::send('emails.replycontact', $data, function ($message) use ($input) {
- 
+
+        Mail::send('emails.replycontact', $data, function ($message) use ($input) {
+
             $message->from('support@legacyweddingorganizer.com', 'Support');
 
             $message->to($input['email'], $input['name'])->subject('Thanks for contact Legacy Wedding Organizer');
- 
-         });
-
+        });
     }
 }

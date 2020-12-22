@@ -219,7 +219,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Instagram' => Vinkla\Instagram\Facades\Instagram::class,
-        
+
 
     ],
 

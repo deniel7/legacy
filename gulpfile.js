@@ -1,4 +1,4 @@
-var elixir = require('laravel-elixir');
+var elixir = require("laravel-elixir");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,19 +11,20 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.sass('app.scss');
+elixir(function (mix) {
+  mix.sass("app.scss");
 });
 
-elixir(function(mix) {
-    mix.scripts([
-        'common.js',
-        'couple.js',
-        'user.js',
-        'package.js',
-        'packageTaken.js',
-        'vendor.js',
-        'event.js',
-        'contact.js'
-    ]);
+elixir(function (mix) {
+  mix.scripts([
+    "common.js",
+    "couple.js",
+    "user.js",
+    "package.js",
+    "packageTaken.js",
+    "vendor.js",
+    "event.js",
+    "contact.js",
+    "newsletter.js",
+  ]);
 });

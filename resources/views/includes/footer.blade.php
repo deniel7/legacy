@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="second-bar">
+        {{-- <div class="second-bar">
            <div class="container">
                 <!-- <h2 class="logo"><a href="#"> LOGO </a></h2> -->
                 <div class="social-icons">
@@ -85,4 +85,4 @@
                 </div>
                 
             </div>
-        </div>
+        </div> --}}

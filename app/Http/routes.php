@@ -12,54 +12,56 @@
 */
 
 //FRONTEND ROUTES
-    Route::get('/home', ['uses' => 'UserController@getHome']);
-    Route::controller('/auth', 'Auth\AuthController');
-    Route::controller('/password', 'Auth\PasswordController');
-      
-    Route::get('/user/home', ['uses' => 'UserController@getHome']);
-    Route::controller('user', 'Auth\UserController');
-    Route::controller('/user/password', 'Auth\UserPasswordController');
+Route::get('/home', ['uses' => 'UserController@getHome']);
+Route::controller('/auth', 'Auth\AuthController');
+Route::controller('/password', 'Auth\PasswordController');
 
-    Route::get('/', 'FrontController@index');
-    Route::get('/detail/{id}', 'FrontController@getDetail');
-    Route::get('/project', 'ProjectController@index');
-    Route::get('/client', 'ClientController@index');
-    Route::get('client-home', 'ClientController@home');
-    Route::get('wedding-data', 'ClientController@weddingData');
-    Route::post('post-wedding-data', 'ClientController@postWeddingData');
-    Route::get('wedding-data-bestmen', 'ClientController@weddingDataBestmen');
-    Route::post('post-bestmen', 'ClientController@postDataBestmen');
-    Route::get('wedding-data-famcoord', 'ClientController@weddingDataFamcoord');
-    Route::post('post-famcoord', 'ClientController@postDataFamcoord');
-    Route::get('wedding-data-guest-welcoming', 'ClientController@weddingDataGuestwelcoming');
-    Route::post('post-guestwelcoming', 'ClientController@postDataGuestwelcoming');
-    Route::get('wedding-data-guestbookangpao', 'ClientController@weddingDataGuestbookAngpao');
-    Route::post('post-guestbookangpao', 'ClientController@postDataGuestbookAngpao');
-    Route::get('wedding-data-teapay', 'ClientController@weddingDataTeaPay');
-    Route::post('post-teapay', 'ClientController@postDataTeaPay');
-    Route::get('wedding-data-corsagelist', 'ClientController@weddingDataCorsageList');
-    Route::post('post-corsagelist', 'ClientController@postDataCorsageList');
-    Route::get('wedding-data-familyphotolist', 'ClientController@weddingDataFamilyPhotoList');
-    Route::post('post-familyphotolist', 'ClientController@postDataFamilyPhotoList');
-    Route::get('wedding-data-friendphotolist', 'ClientController@weddingDataFriendPhotoList');
-    Route::post('post-friendphotolist', 'ClientController@postDataFriendPhotoList');
-    Route::get('/about', 'FrontController@getAbout');
-    Route::get('/contact', 'FrontController@getContact');
-    Route::post('post-contact', 'FrontController@doSend');
-    Route::post('contact', ['as'=>'front.post_contact','uses'=>'FrontController@post_contact']);
+Route::get('/user/home', ['uses' => 'UserController@getHome']);
+Route::controller('user', 'Auth\UserController');
+Route::controller('/user/password', 'Auth\UserPasswordController');
 
-    Route::resource('project', 'ProjectController');
-    Route::controller('project', 'ProjectController');
-    
-    
-    Route::resource('/packages', 'PackageController');
-    Route::controller('packages', 'PackageController');
-    Route::get('packages-del/{id}', 'PackageController@destroy');
-    Route::post('datatable/packages', 'PackageController@datatable');
+Route::get('/', 'FrontController@index');
+Route::get('/detail/{id}', 'FrontController@getDetail');
+Route::get('/newsletter', 'NewsletterController@index');
+Route::get('/detail-newsletter/{id}', 'NewsletterController@getDetail');
+Route::get('/project', 'ProjectController@index');
+Route::get('/client', 'ClientController@index');
+Route::get('client-home', 'ClientController@home');
+Route::get('wedding-data', 'ClientController@weddingData');
+Route::post('post-wedding-data', 'ClientController@postWeddingData');
+Route::get('wedding-data-bestmen', 'ClientController@weddingDataBestmen');
+Route::post('post-bestmen', 'ClientController@postDataBestmen');
+Route::get('wedding-data-famcoord', 'ClientController@weddingDataFamcoord');
+Route::post('post-famcoord', 'ClientController@postDataFamcoord');
+Route::get('wedding-data-guest-welcoming', 'ClientController@weddingDataGuestwelcoming');
+Route::post('post-guestwelcoming', 'ClientController@postDataGuestwelcoming');
+Route::get('wedding-data-guestbookangpao', 'ClientController@weddingDataGuestbookAngpao');
+Route::post('post-guestbookangpao', 'ClientController@postDataGuestbookAngpao');
+Route::get('wedding-data-teapay', 'ClientController@weddingDataTeaPay');
+Route::post('post-teapay', 'ClientController@postDataTeaPay');
+Route::get('wedding-data-corsagelist', 'ClientController@weddingDataCorsageList');
+Route::post('post-corsagelist', 'ClientController@postDataCorsageList');
+Route::get('wedding-data-familyphotolist', 'ClientController@weddingDataFamilyPhotoList');
+Route::post('post-familyphotolist', 'ClientController@postDataFamilyPhotoList');
+Route::get('wedding-data-friendphotolist', 'ClientController@weddingDataFriendPhotoList');
+Route::post('post-friendphotolist', 'ClientController@postDataFriendPhotoList');
+Route::get('/about', 'FrontController@getAbout');
+Route::get('/contact', 'FrontController@getContact');
+Route::post('post-contact', 'FrontController@doSend');
+Route::post('contact', ['as' => 'front.post_contact', 'uses' => 'FrontController@post_contact']);
+
+Route::resource('project', 'ProjectController');
+Route::controller('project', 'ProjectController');
+
+
+Route::resource('/packages', 'PackageController');
+Route::controller('packages', 'PackageController');
+Route::get('packages-del/{id}', 'PackageController@destroy');
+Route::post('datatable/packages', 'PackageController@datatable');
 
 Route::get('register', [
-   'as' => 'register', 'uses' => 'ClientController@register'
- ]);
+    'as' => 'register', 'uses' => 'ClientController@register'
+]);
 
 Route::get('/register/activate/{code}', 'Auth\AuthController@getActivate');
 Route::post('post-register', 'ClientController@doRegister');
@@ -80,8 +82,8 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 
 
 /* Datatable */
-    
-    
+
+
 
 
 
@@ -96,7 +98,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('datatable/users', 'UserController@datatable');
 
     Route::get('/couple/image/{id}', 'CoupleController@getPreviewImage');
-    Route::post('resizeImagePost', ['as'=>'resizeImagePost','uses'=>'CoupleController@resizeImagePost']);
+    Route::post('resizeImagePost', ['as' => 'resizeImagePost', 'uses' => 'CoupleController@resizeImagePost']);
 
     Route::resource('couple', 'CoupleController');
     Route::controller('couple', 'CoupleController');
@@ -105,7 +107,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::model('project', 'App\Project');
     Route::model('package-taken', 'App\PackageTaken');
 
-    
+
     // Route::post('datatable/couples', 'CoupleController@datatable');
 
     Route::get('/package-takens/{id}', 'PackageTakenController@destroy');
@@ -130,17 +132,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::controller('contacts', 'ContactController');
     Route::post('datatable/contacts', 'ContactController@datatable');
 
+    Route::resource('news-letter', 'NewsController');
+    Route::controller('news-letter', 'NewsController');
+    Route::post('datatable/news-letter', 'NewsController@datatable');
 
-    
+
+
 
 
     Route::get('/laravel-filemanager', '\Unisharp\Laravelfilemanager\controllers\LfmController@show');
     Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
-    
+
     /* Dashboard sebagai halaman pertama setelah login */
     Route::get('home', 'DashboardController@getIndex');
 
-     
+
     // my account
     // Route::get('/account', 'AccountController@index');
     // Route::post('/account/update-profile', 'AccountController@updateProfile');
@@ -166,5 +172,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/system/user/save', 'SystemController@saveUser');
     Route::post('/system/user/update/{id}', 'SystemController@updateUser');
     Route::post('/system/user/delete/{id}', 'SystemController@deleteUser');
-
 });
