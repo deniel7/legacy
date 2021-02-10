@@ -119,16 +119,12 @@
     // });
     </script>
 
-    <script type="text/javascript">  
-
-     CKEDITOR.replace( 'editor1',{
-
-        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-     });  
-
-  </script>  
+<script type="text/javascript">  
+  CKEDITOR.replace('editor1', {
+    filebrowserUploadUrl: "{{route('NewsController.upload', ['_token' => csrf_token() ])}}",
+    filebrowserUploadMethod: 'form'
+});
+</script>
+ 
 
 @endsection
