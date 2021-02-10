@@ -53,7 +53,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- CSS ALL -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-  <script src="/templateEditor/ckeditor/ckeditor.js"></script>  
+  {{-- <script src="/templateEditor/ckeditor/ckeditor.js"></script>   --}}
+  <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
 
 </head>
 

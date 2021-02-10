@@ -132,6 +132,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::controller('contacts', 'ContactController');
     Route::post('datatable/contacts', 'ContactController@datatable');
 
+    Route::post('NewsController/upload', 'NewsController@upload')->name('NewsController.upload');
     Route::resource('news-letter', 'NewsController');
     Route::controller('news-letter', 'NewsController');
     Route::post('datatable/news-letter', 'NewsController@datatable');
